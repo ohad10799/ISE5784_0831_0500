@@ -20,6 +20,11 @@ public class Point {
                 && this.xyz.equals(other.xyz);
     }
 
+    @Override
+    public String toString() {
+        return xyz.toString();
+    }
+
     public Vector subtract(Point p1){
         return new Vector(xyz.subtract(p1.xyz));
 
