@@ -1,8 +1,17 @@
 package geometries;
 
+/**
+ * Abstract class representing a radial geometry in 3D space.
+ * Includes a radius parameter common to all radial geometries.
+ */
 public abstract class RadialGeometry implements Geometry {
-    final protected double radius;
+    final protected double radius; // The radius of the radial geometry.
 
+    /**
+     * Constructs a new radial geometry with the given radius.
+     *
+     * @param radius The radius of the radial geometry.
+     */
     public RadialGeometry(double radius) {
         this.radius = radius;
     }
