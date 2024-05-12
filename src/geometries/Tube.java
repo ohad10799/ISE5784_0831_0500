@@ -5,7 +5,7 @@ import primitives.Ray;
 import primitives.Vector;
 
 public class Tube extends RadialGeometry{
-    final Ray axis;
+    final protected Ray axis;
 
     public Tube(double radius, Ray axis) {
         super(radius);
