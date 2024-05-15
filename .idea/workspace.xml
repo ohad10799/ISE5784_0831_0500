@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="added test classes">
+    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="added test classes and some tests in vector">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/CylinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/CylinderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/PlaneTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/PolygonTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/PolygonTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/SphereTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/TubeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/TubeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/primitives/PointTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/primitives/PointTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/primitives/VectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/primitives/VectorTest.java" afterDir="false" />
     </list>
@@ -48,8 +43,12 @@
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
     "JUnit.VectorTest.testAdd.executor": "Run",
+    "JUnit.VectorTest.testConstructorWithThreeValues.executor": "Run",
+    "JUnit.VectorTest.testConstructorWithWithDouble3.executor": "Run",
+    "JUnit.VectorTest.testCrossProduct.executor": "Run",
     "JUnit.VectorTest.testLength.executor": "Run",
     "JUnit.VectorTest.testLengthSquared.executor": "Run",
+    "JUnit.VectorTest.testNormalize.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -75,21 +74,8 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VectorTest.testAdd">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.Main" />
-      <module name="ISE5784_0831_0500" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VectorTest.testAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.VectorTest.testNormalize">
+    <configuration name="VectorTest.testConstructorWithThreeValues" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5784_0831_0500" />
       <extension name="coverage">
         <pattern>
@@ -99,13 +85,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="primitives" />
       <option name="MAIN_CLASS_NAME" value="primitives.VectorTest" />
-      <option name="METHOD_NAME" value="testAdd" />
+      <option name="METHOD_NAME" value="testConstructorWithThreeValues" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VectorTest.testLength" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VectorTest.testConstructorWithWithDouble3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5784_0831_0500" />
       <extension name="coverage">
         <pattern>
@@ -115,7 +101,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="primitives" />
       <option name="MAIN_CLASS_NAME" value="primitives.VectorTest" />
-      <option name="METHOD_NAME" value="testLength" />
+      <option name="METHOD_NAME" value="testConstructorWithWithDouble3" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VectorTest.testCrossProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5784_0831_0500" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="primitives.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="primitives" />
+      <option name="MAIN_CLASS_NAME" value="primitives.VectorTest" />
+      <option name="METHOD_NAME" value="testCrossProduct" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -137,12 +139,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="VectorTest.testNormalize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5784_0831_0500" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="primitives.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="primitives" />
+      <option name="MAIN_CLASS_NAME" value="primitives.VectorTest" />
+      <option name="METHOD_NAME" value="testNormalize" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.VectorTest.testAdd" />
-        <item itemvalue="JUnit.VectorTest.testLength" />
+        <item itemvalue="JUnit.VectorTest.testNormalize" />
         <item itemvalue="JUnit.VectorTest.testLengthSquared" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.VectorTest.testConstructorWithThreeValues" />
+        <item itemvalue="JUnit.VectorTest.testConstructorWithWithDouble3" />
+        <item itemvalue="JUnit.VectorTest.testCrossProduct" />
       </list>
     </recent_temporary>
   </component>
@@ -219,7 +238,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1715526776843</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL‎-00009" summary="added test classes and some tests in vector">
+      <option name="closed" value="true" />
+      <created>1715542695744</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL‎-00009" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1715542695744</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,21 +268,7 @@
     <MESSAGE value="the full program without documantation" />
     <MESSAGE value="finished stage 1!" />
     <MESSAGE value="added test classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="added test classes" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/primitives/Point.java</url>
-          <line>49</line>
-          <properties class="primitives.Point" method="subtract">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="added test classes and some tests in vector" />
+    <option name="LAST_COMMIT_MESSAGE" value="added test classes and some tests in vector" />
   </component>
 </project>
