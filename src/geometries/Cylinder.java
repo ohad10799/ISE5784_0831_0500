@@ -22,6 +22,13 @@ public class Cylinder extends Tube {
         this.height = height;
     }
 
+    /**
+     * Returns the normal vector at a given point on the cylinder's surface.
+     * Not implemented in this class.
+     *
+     * @param p1 The point on the cylinder's surface.
+     * @return null since the normal vector calculation is not implemented.
+     */
     @Override
     public Vector getNormal(Point p1) {
         return null;

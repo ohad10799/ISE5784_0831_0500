@@ -42,9 +42,10 @@ class PointTest {
      */
     @Test
     void testDistanceSquared() {
-        fail("Not yet implemented");
-        // מקרי קצה אפשריים:
-        // מרחק שלילי, מרחק 0
+        // ============ Equivalence Partitions Tests ==============
+        // distance of 2 regular points
+        assertEquals(3,p1.distanceSquared(new Point(2,3,4)),"ERROR: testAdd() regular point and vector not doing well");
+
     }
 
     /**
@@ -52,6 +53,9 @@ class PointTest {
      */
     @Test
     void testDistance() {
-        fail("Not yet implemented");
+        // ============ Equivalence Partitions Tests ==============
+        // distance of 2 regular points
+        assertEquals(Math.sqrt(3),p1.distance(new Point(2,3,4)),"ERROR: testAdd() regular point and vector not doing well");
+
     }
 }
