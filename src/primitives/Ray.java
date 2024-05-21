@@ -40,4 +40,12 @@ public class Ray {
     public String toString() {
         return "head:" + head.xyz.toString() + " direction: " + direction.xyz.toString();
     }
+
+    public Point getHead(){
+        return head;
+    }
+
+    public Vector getDirection() {
+        return direction;
+    }
 }

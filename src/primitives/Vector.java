@@ -44,6 +44,9 @@ public class Vector extends Point {
      * @return A new vector that is the result of the addition.
      */
     public Vector add(Vector v1) {
+        if (xyz.add(v1.xyz)==ZERO.xyz) {
+            throw new IllegalArgumentException("adding the opposite vectors get vector ZERO!");
+        }
         return new Vector(xyz.add(v1.xyz));
     }
 
@@ -54,6 +57,9 @@ public class Vector extends Point {
      * @return A new vector that is the result of the scaling.
      */
     public Vector scale(double rhs) {
+        if (rhs==0) {
+            throw new IllegalArgumentException("The scale is zero, the vector is the zero vector!");
+        }
         return new Vector(xyz.scale(rhs));
     }
 

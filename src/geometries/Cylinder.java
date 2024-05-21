@@ -31,7 +31,32 @@ public class Cylinder extends Tube {
      */
     @Override
     public Vector getNormal(Point p1) {
-        return null;
+        // Get the starting point and direction of the axis
+        Point p0 = axis.getHead();
+        Vector v = axis.getDirection();
+
+        // Vector from p0 to p1
+        Vector p0_p1 = p1.subtract(p0);
+
+        // Projection of p0_p1 onto the axis direction vector
+        double t = v.dotProduct(p0_p1);
+
+        // Check if the point is on the bottom base
+        if (t <= 0) {
+            return v.scale(-1); // The normal vector points downward
+        }
+
+        // Check if the point is on the top base
+        if (t >= height) {
+            return v; // The normal vector points upward
+        }
+
+        // The point is on the curved surface
+        // Closest point on the axis to p1
+        Point o = p0.add(v.scale(t));
+
+        // The normal vector is the vector from o to p1
+        return p1.subtract(o).normalize();
     }
 }
 
