@@ -5,8 +5,15 @@ import primitives.Vector;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit tests for the geometries.Triangle class.
+ * @author Ohad and Meir
+ */
 class TriangleTest {
     private final double DELTA = 0.000001;
+    /**
+     * Test method for {@link geometries.Triangle#getNormal(primitives.Point)}.
+     */
     public void testGetNormal()
     {
         // ============ Equivalence Partitions Tests ==============
