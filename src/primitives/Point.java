@@ -17,7 +17,7 @@ public class Point {
      * @param d3 The z-coordinate of the point.
      */
     public Point(double d1, double d2, double d3) {
-        xyz = new Double3(d1, d2, d3);
+        this(new Double3(d1,d2,d3));
     }
 
     /**
@@ -25,7 +25,7 @@ public class Point {
      *
      * @param xyz The coordinates of the point.
      */
-    public Point(Double3 xyz) {
+    Point(Double3 xyz) {
         this.xyz = xyz;
     }
 

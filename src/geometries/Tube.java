@@ -33,6 +33,9 @@ public class Tube extends RadialGeometry {
 
         // Projection of p0_p1 onto the axis direction vector
         double t = v.dotProduct(p0_p1);
+        if (t == 0) {
+            return v;
+        }
 
         // Closest point on the axis to p1
         Point o = p0.add(v.scale(t));

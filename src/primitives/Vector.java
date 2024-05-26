@@ -15,12 +15,7 @@ public class Vector extends Point {
      * @throws IllegalArgumentException If the vector is a zero vector.
      */
     public Vector(double d1, double d2, double d3) {
-        super(d1, d2, d3);
-
-        if (equals(ZERO)) {
-            throw new IllegalArgumentException("Vector can't be zero!");
-        }
-
+        this(new Double3(d1,d2,d3));
     }
 
     /**
@@ -31,7 +26,6 @@ public class Vector extends Point {
      */
     public Vector(Double3 xyz) {
         super(xyz);
-
         if (equals(ZERO)) {
             throw new IllegalArgumentException("Vector can't be zero!");
         }
@@ -80,12 +74,18 @@ public class Vector extends Point {
      * @return A new vector that is the result of the cross product.
      */
     public Vector crossProduct(Vector v1) {
-        return new Vector(
-                (xyz.d2 * v1.xyz.d3 - xyz.d3 * v1.xyz.d2),
-                (xyz.d3 * v1.xyz.d1 - xyz.d1 * v1.xyz.d3),
-                (xyz.d1 * v1.xyz.d2 - xyz.d2 * v1.xyz.d1)
-        );
+        double x = (xyz.d2 * v1.xyz.d3 - xyz.d3 * v1.xyz.d2);
+        double y = (xyz.d3 * v1.xyz.d1 - xyz.d1 * v1.xyz.d3);
+        double z = (xyz.d1 * v1.xyz.d2 - xyz.d2 * v1.xyz.d1);
+
+        // Check if the resulting vector is a zero vector
+        if (x == 0 && y == 0 && z == 0) {
+            throw new IllegalArgumentException("The vectors are parallel");
+        }
+
+        return new Vector(x, y, z);
     }
+
 
     /**
      * Computes the squared length of this vector.

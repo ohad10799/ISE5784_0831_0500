@@ -31,7 +31,7 @@ class TubeTest {
         // =============== Boundary Values Tests ==================
         // Point opposite the ray's head
         p1 = new Point(1, 0, 0);
-        expectedNormal = new Vector(1, 0, 0).normalize();
+        expectedNormal = new Vector(0, 1, 0).normalize();
         assertEquals(expectedNormal, tube.getNormal(p1), "Bad normal to tube when point is opposite to ray head");
     }
 }

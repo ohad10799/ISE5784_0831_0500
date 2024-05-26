@@ -1,5 +1,6 @@
 package geometries;
 
+import org.junit.jupiter.api.Test;
 import primitives.Point;
 import primitives.Vector;
 
@@ -14,7 +15,8 @@ class TriangleTest {
     /**
      * Test method for {@link geometries.Triangle#getNormal(primitives.Point)}.
      */
-    public void testGetNormal()
+    @Test
+    void testGetNormal()
     {
         // ============ Equivalence Partitions Tests ==============
         // TC01: There is a simple single test here - using a quad

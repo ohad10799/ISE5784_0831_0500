@@ -35,6 +35,10 @@ public class Cylinder extends Tube {
         Point p0 = axis.getHead();
         Vector v = axis.getDirection();
 
+        if(p0.equals(p1)){
+            return v;
+        }
+
         // Vector from p0 to p1
         Vector p0_p1 = p1.subtract(p0);
 
