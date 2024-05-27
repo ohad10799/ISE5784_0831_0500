@@ -13,5 +13,5 @@ public interface Intersectable  {
      * @param ray the ray to check for intersections with the geometric shape
      * @return a list of points where the ray intersects the geometric shape, or an empty list if there are no intersections
      */
-    List<Point> findIntsersections(Ray ray);
+    List<Point> findIntersections(Ray ray);
 }

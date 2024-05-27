@@ -34,4 +34,9 @@ class TubeTest {
         expectedNormal = new Vector(0, 1, 0).normalize();
         assertEquals(expectedNormal, tube.getNormal(p1), "Bad normal to tube when point is opposite to ray head");
     }
+
+    @Test
+    void testFindIntersections() {
+
+    }
 }

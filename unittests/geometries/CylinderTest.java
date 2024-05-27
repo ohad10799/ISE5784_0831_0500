@@ -60,5 +60,9 @@ public class CylinderTest {
         assertEquals(expectedNormal, cylinder.getNormal(pointAtBottomCenter), "Wrong normal for point at the center of the bottom base");
     }
 
+    @Test
+    void testFindIntersections() {
+
+    }
 }
 

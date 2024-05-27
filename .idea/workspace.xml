@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="finished stage 2!">
-      <change afterPath="$PROJECT_DIR$/src/geometries/Intersectable.java" afterDir="false" />
+    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="statrted stage 3!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Geometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Intersectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Intersectable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geometries/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Polygon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unittests/geometries/CylinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/CylinderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unittests/geometries/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/PlaneTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unittests/geometries/PolygonTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/PolygonTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unittests/geometries/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/SphereTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unittests/geometries/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/TriangleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unittests/geometries/TubeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/TubeTest.java" afterDir="false" />
     </list>
     <list id="cb322a80-95a1-4bf5-badf-85de343acff9" name="Changes by wwwme" comment="">
       <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
@@ -46,21 +49,6 @@
     "accountId": "d903ca85-d5c6-4933-889c-b9ad6a2b79c4"
   }
 }]]></component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/geometries/Triangle.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="6" changelist="aeb495b4-4b72-4123-983b-21f8e0ee9493" />
-        <range start1="22" end1="22" start2="25" end2="31" changelist="cb322a80-95a1-4bf5-badf-85de343acff9" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/geometries/Plane.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="4" changelist="aeb495b4-4b72-4123-983b-21f8e0ee9493" />
-        <range start1="4" end1="4" start2="5" end2="7" changelist="aeb495b4-4b72-4123-983b-21f8e0ee9493" />
-        <range start1="54" end1="54" start2="57" end2="62" changelist="cb322a80-95a1-4bf5-badf-85de343acff9" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -339,7 +327,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1716745737767</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL‎-00016" summary="statrted stage 3!">
+      <option name="closed" value="true" />
+      <created>1716748606086</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL‎-00016" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1716748606086</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -367,6 +363,7 @@
     <MESSAGE value="finished stage 2 witout self check" />
     <MESSAGE value="finished stage 2, need to check if all is good" />
     <MESSAGE value="finished stage 2!" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished stage 2!" />
+    <MESSAGE value="statrted stage 3!" />
+    <option name="LAST_COMMIT_MESSAGE" value="statrted stage 3!" />
   </component>
 </project>
