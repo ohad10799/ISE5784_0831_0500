@@ -26,21 +26,21 @@ public class Cylinder extends Tube {
      * Returns the normal vector at a given point on the cylinder's surface.
      * Not implemented in this class.
      *
-     * @param p1 The point on the cylinder's surface.
+     * @param point The point on the cylinder's surface.
      * @return null since the normal vector calculation is not implemented.
      */
     @Override
-    public Vector getNormal(Point p1) {
+    public Vector getNormal(Point point) {
         // Get the starting point and direction of the axis
         Point p0 = axis.getHead();
         Vector v = axis.getDirection();
 
-        if(p0.equals(p1)){
+        if(p0.equals(point)){
             return v;
         }
 
         // Vector from p0 to p1
-        Vector p0_p1 = p1.subtract(p0);
+        Vector p0_p1 = point.subtract(p0);
 
         // Projection of p0_p1 onto the axis direction vector
         double t = v.dotProduct(p0_p1);
@@ -60,7 +60,7 @@ public class Cylinder extends Tube {
         Point o = p0.add(v.scale(t));
 
         // The normal vector is the vector from o to p1
-        return p1.subtract(o).normalize();
+        return point.subtract(o).normalize();
     }
 }
 

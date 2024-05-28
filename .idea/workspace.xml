@@ -4,16 +4,82 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="statrted stage 3!">
+    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="stage 3 for plane triangle and sphere">
+      <change afterPath="$PROJECT_DIR$/JavaDocs/allclasses-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/allpackages-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/element-list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/geometries/Cylinder.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/geometries/CylinderTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/geometries/Geometry.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/geometries/Intersectable.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/geometries/Plane.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/geometries/Polygon.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/geometries/PolygonTests.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/geometries/RadialGeometry.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/geometries/Sphere.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/geometries/Triangle.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/geometries/Tube.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/geometries/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/geometries/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/help-doc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-10.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-11.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-12.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-13.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-14.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-15.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-16.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-17.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-18.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-19.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-20.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-6.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-7.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-8.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-9.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/legal/COPYRIGHT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/legal/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/legal/jquery.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/legal/jqueryUI.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/member-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/module-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/overview-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/overview-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/package-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/primitives/Double3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/primitives/Point.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/primitives/Ray.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/primitives/Util.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/primitives/Vector.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/primitives/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/primitives/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/resource-files/copy.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/resource-files/glass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/resource-files/jquery-ui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/resource-files/link.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/resource-files/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/resource-files/x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/script-files/jquery-3.6.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/script-files/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/script-files/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/script-files/search-page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/script-files/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/tag-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/test/Main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/test/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/test/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDocs/type-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Intersectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Intersectable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Polygon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/CylinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/CylinderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/PlaneTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/PolygonTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/PolygonTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/SphereTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/TriangleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Cylinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/geometries/TubeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/TubeTest.java" afterDir="false" />
     </list>
     <list id="cb322a80-95a1-4bf5-badf-85de343acff9" name="Changes by wwwme" comment="">
@@ -65,6 +131,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
+    "JUnit.All in ISE5784_0831_0500.executor": "Run",
     "JUnit.CylinderTest.executor": "Run",
     "JUnit.CylinderTest.testGetNormal.executor": "Run",
     "JUnit.PlaneTest.executor": "Run",
@@ -110,18 +177,11 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VectorTest.testNormalize">
-    <configuration name="PointTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in ISE5784_0831_0500">
+    <configuration name="All in ISE5784_0831_0500" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5784_0831_0500" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="primitives.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="primitives" />
-      <option name="MAIN_CLASS_NAME" value="primitives.PointTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -141,17 +201,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VectorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TubeTest.testGetNormal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5784_0831_0500" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="primitives.*" />
+          <option name="PATTERN" value="geometries.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="primitives" />
-      <option name="MAIN_CLASS_NAME" value="primitives.VectorTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="geometries" />
+      <option name="MAIN_CLASS_NAME" value="geometries.TubeTest" />
+      <option name="METHOD_NAME" value="testGetNormal" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -190,11 +251,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in ISE5784_0831_0500" />
+        <item itemvalue="JUnit.TubeTest" />
+        <item itemvalue="JUnit.TubeTest.testGetNormal" />
         <item itemvalue="JUnit.VectorTest.testNormalize" />
         <item itemvalue="JUnit.VectorTest.testDotProduct" />
-        <item itemvalue="JUnit.VectorTest" />
-        <item itemvalue="JUnit.PointTest" />
-        <item itemvalue="JUnit.TubeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -335,7 +396,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1716748606086</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL‎-00017" summary="stage 3 for plane triangle and sphere">
+      <option name="closed" value="true" />
+      <created>1716827180478</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL‎-00017" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1716827180478</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -364,6 +433,7 @@
     <MESSAGE value="finished stage 2, need to check if all is good" />
     <MESSAGE value="finished stage 2!" />
     <MESSAGE value="statrted stage 3!" />
-    <option name="LAST_COMMIT_MESSAGE" value="statrted stage 3!" />
+    <MESSAGE value="stage 3 for plane triangle and sphere" />
+    <option name="LAST_COMMIT_MESSAGE" value="stage 3 for plane triangle and sphere" />
   </component>
 </project>
