@@ -43,7 +43,7 @@ public class Tube extends RadialGeometry {
         }
 
         // Closest point on the axis to p
-        Point o = p0.add(v.scale(t));
+        Point o = axis.getPoint(t);
 
         // The normal vector is the vector from o to p
         return p.subtract(o).normalize();

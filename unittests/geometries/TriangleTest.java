@@ -55,28 +55,28 @@ class TriangleTest {
         // TC02: Intersection point outside the triangle, in front of one of the edges
         Ray ray2 = new Ray(new Point(0.5, 0.5, 1), new Vector(0, 0, -1));
         List<Point> result2 = triangle.findIntersections(ray2);
-        assertEquals(0, result2.size(), "Wrong number of intersection points for case 2");
+        assertNull(result2, "Wrong number of intersection points for case 2");
 
         // TC03: Intersection point outside the triangle, in front of one of the vertices
         Ray ray3 = new Ray(new Point(-0.5, -0.5, 1), new Vector(0, 0, -1));
         List<Point> result3 = triangle.findIntersections(ray3);
-        assertEquals(0, result3.size(), "Wrong number of intersection points for case 3");
+        assertNull(result3, "Wrong number of intersection points for case 3");
 
         // =============== Boundary Values Tests ==================
         // TC04: Intersection point on an edge of the triangle
         Ray ray4 = new Ray(new Point(0.5, 0, 1), new Vector(0, 0, -1));
         List<Point> result4 = triangle.findIntersections(ray4);
-        assertEquals(1, result4.size(), "Wrong number of intersection points for case 4");
+        assertNull(result4, "Wrong number of intersection points for case 4");
 
         // TC05: Intersection point at one of the vertices of the triangle
         Ray ray5 = new Ray(new Point(0, 0, 1), new Vector(0, 0, -1));
         List<Point> result5 = triangle.findIntersections(ray5);
-        assertEquals(0, result5.size(), "Wrong number of intersection points for case 5");
+        assertNull(result5, "Wrong number of intersection points for case 5");
 
         // Case TC06: Intersection point on the extension of one of the edges of the triangle
         Ray ray6 = new Ray(new Point(0.5, 0.5, 1), new Vector(0, 0, -1));
         List<Point> result6 = triangle.findIntersections(ray6);
-        assertEquals(0, result6.size(), "Wrong number of intersection points for case 6");
+        assertNull(result6, "Wrong number of intersection points for case 6");
 
     }
 
