@@ -5,7 +5,7 @@ import primitives.*;
 
 
 
-import java.util.List;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -63,37 +63,38 @@ class PlaneTest {
         Point p2 = new Point(0, 1, 0);
         Point p3 = new Point(0, 0, 1);
         Plane plane = new Plane(p1, p2, p3);
-
-        // Define the rays and points for intersection testing
-        Ray rayOutsideNotParallel = new Ray(new Point(1, 1, 1), new Vector(1, 1, 1)); // Ray outside, not parallel
-        Ray rayOutsideNotParallelNoIntersection = new Ray(new Point(1, 1, 1), new Vector(1, 1, -1)); // Ray outside, not parallel, no intersection
-        Ray rayParallelOutside = new Ray(new Point(1, 1, 1), new Vector(1, 0, 0)); // Ray parallel, outside
-        Ray rayParallelInside = new Ray(new Point(1, 1, 1), new Vector(-1, 0, 0)); // Ray parallel, inside
-        Ray rayOrthogonalInside = new Ray(new Point(1, 1, 1), new Vector(0, 0, -1)); // Ray orthogonal, inside
-        Ray rayOrthogonalAtOrigin = new Ray(new Point(0, 0, 0), new Vector(0, 0, -1)); // Ray orthogonal, at origin
+        Point pInside = new Point(0.5,0.5,0);
 
         // Test for intersection points
         // ============ Equivalence Partitions Tests ==============
-        //TC01:Intersection with a Ray Outside the Plane, Not Parallel
-        List<Point> resultOutsideNotParallel = plane.findIntersections(rayOutsideNotParallel);
-        assertNotNull(resultOutsideNotParallel, "Intersection with ray outside, not parallel should not be null");
-        //TC02:Intersection with a Ray Outside the Plane, Not Parallel, No Intersection
-        List<Point> resultOutsideNotParallelNoIntersection = plane.findIntersections(rayOutsideNotParallelNoIntersection);
-        assertNotNull(resultOutsideNotParallelNoIntersection, "Intersection with ray outside, not parallel, no intersection should not be null");
-
+        //TC01: Intersection with a Ray Outside the Plane, Not Parallel
+        assertNotNull(plane.findIntersections(new Ray(new Point(2,2,2),new Vector(-1,-1,-2))), "Intersection with ray outside, not parallel should not be null");
+        //TC02: Intersection with a Ray Outside the Plane, Not Parallel, No Intersection
+        assertNull(plane.findIntersections(new Ray(new Point(2,2,2),new Vector(1,1,2))), "Intersection with ray outside, not parallel should be null");
         // =============== Boundary Values Tests ==================
-        //TC03:Intersection with a Ray Parallel to the Plane, Outside the Plane
-        List<Point> resultParallelOutside = plane.findIntersections(rayParallelOutside);
-        assertNotNull(resultParallelOutside, "Intersection with ray parallel, outside should not be null");
-        //TC04:Intersection with a Ray Parallel to the Plane, Inside the Plane
-        List<Point> resultParallelInside = plane.findIntersections(rayParallelInside);
-        assertNotNull(resultParallelInside, "Intersection with ray parallel, inside should not be null");
-        //TC05:Intersection with a Ray Orthogonal to the Plane, Inside the Plane
-        List<Point> resultOrthogonalInside = plane.findIntersections(rayOrthogonalInside);
-        assertNotNull(resultOrthogonalInside, "Intersection with ray orthogonal, inside should not be null");
-        //TC06:Intersection with a Ray Orthogonal to the Plane, at the Origin
-        List<Point> resultOrthogonalAtOrigin = plane.findIntersections(rayOrthogonalAtOrigin);
-        assertNotNull(resultOrthogonalAtOrigin, "Intersection with ray orthogonal, at origin should not be null");
+
+        // **** Group: Ray Parallel to the Plane
+        Vector VParallel = new Vector(-1,1,0);
+        //TC03: Intersection with a Ray Parallel to the Plane, inside the Plane
+        assertNull(plane.findIntersections(new Ray(pInside,VParallel)), "Intersection with ray Parallel to the Plane, inside the Plane should be null");
+        //TC04:Intersection with a Ray Parallel to the Plane, outside the Plane
+        assertNull(plane.findIntersections(new Ray(new Point(2,2,0),VParallel)), "Intersection with ray Parallel to the Plane, outside the Plane should be null");
+
+        // **** Group: Ray Orthogonal to the plane
+        Vector VOrthogonal = new Vector(1,1,1);
+        //TC05:Intersection with a Ray Orthogonal to the Plane, before the Plane
+        assertNotNull(plane.findIntersections(new Ray(new Point(-1,-1,-1),VOrthogonal)), "Intersection with ray before the plane and orthogonal should not be null");
+        //TC06:Intersection with a Ray Orthogonal to the Plane, in the Plane
+        assertNull(plane.findIntersections(new Ray(pInside,VParallel)), "Intersection with ray in the plane and orthogonal should be null");
+        //TC07: Intersection with a Ray Orthogonal to the Plane, after the Plane
+        assertNull(plane.findIntersections(new Ray(new Point(2,2,2),VParallel)), "Intersection with ray after the plane and orthogonal should be null");
+
+        // **** Group: Ray not Orthogonal and not Parallel to the plane
+        //TC08: The ray starts at the same point as the plane
+        assertNull(plane.findIntersections(new Ray(p1,new Vector(1,2,3))), "Intersection with ray starts at the same point as the plane should be null");
+        //TC09: The ray starts on the plane
+        assertNull(plane.findIntersections(new Ray(pInside,new Vector(1,2,3))), "Intersection with ray starts on the plane should be null");
+
     }
 
 

@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="middle of stage 3">
+    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="fixed tests in SphereTest and triangle, need to fix from TC16 in SphereTest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Geometries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/geometries/GeometriesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/GeometriesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unittests/geometries/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/PlaneTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/geometries/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/SphereTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/TriangleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/primitives/RayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/primitives/RayTest.java" afterDir="false" />
     </list>
     <list id="cb322a80-95a1-4bf5-badf-85de343acff9" name="Changes by wwwme" comment="">
       <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
@@ -46,6 +46,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../../../../../../../Program Files/Java/jdk-22/lib/src.zip!/java.base/java/util/ArrayList.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$PROJECT_DIR$/lib/junit-jupiter-api-5.8.1.jar!/org/junit/jupiter/api/Assertions.class" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectColorInfo">{
@@ -69,6 +70,7 @@
     "JUnit.CylinderTest.testGetNormal.executor": "Run",
     "JUnit.GeometriesTest.testFindIntersections.executor": "Run",
     "JUnit.PlaneTest.executor": "Run",
+    "JUnit.PlaneTest.testFindIntersections.executor": "Run",
     "JUnit.PointTest.executor": "Run",
     "JUnit.PointTest.testDistance.executor": "Run",
     "JUnit.PointTest.testDistanceSquared.executor": "Run",
@@ -115,7 +117,7 @@
       <recent name="geometries" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SphereTest.testFindIntersections">
+  <component name="RunManager" selected="JUnit.All in ISE5784_0831_0500">
     <configuration name="All in ISE5784_0831_0500" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5784_0831_0500" />
       <option name="PACKAGE_NAME" value="" />
@@ -140,17 +142,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RayTest.testGetPoint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlaneTest.testFindIntersections" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5784_0831_0500" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="primitives.*" />
+          <option name="PATTERN" value="geometries.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="primitives" />
-      <option name="MAIN_CLASS_NAME" value="primitives.RayTest" />
-      <option name="METHOD_NAME" value="testGetPoint" />
+      <option name="PACKAGE_NAME" value="geometries" />
+      <option name="MAIN_CLASS_NAME" value="geometries.PlaneTest" />
+      <option name="METHOD_NAME" value="testFindIntersections" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -190,11 +192,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SphereTest.testFindIntersections" />
         <item itemvalue="JUnit.All in ISE5784_0831_0500" />
-        <item itemvalue="JUnit.TriangleTest.testFindIntersections" />
-        <item itemvalue="JUnit.RayTest.testGetPoint" />
+        <item itemvalue="JUnit.PlaneTest.testFindIntersections" />
         <item itemvalue="JUnit.GeometriesTest.testFindIntersections" />
+        <item itemvalue="JUnit.SphereTest.testFindIntersections" />
+        <item itemvalue="JUnit.TriangleTest.testFindIntersections" />
       </list>
     </recent_temporary>
   </component>
@@ -383,7 +385,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1717353418218</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL‎-00023" summary="fixed tests in SphereTest and triangle, need to fix from TC16 in SphereTest">
+      <option name="closed" value="true" />
+      <created>1717440091949</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL‎-00023" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1717440091949</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -417,6 +427,7 @@
     <MESSAGE value="test findIntersections (need to check if its ok) and impliment of findIntersections of plane and middle of sphere" />
     <MESSAGE value="finished level A in stage 3 and start level B" />
     <MESSAGE value="middle of stage 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="middle of stage 3" />
+    <MESSAGE value="fixed tests in SphereTest and triangle, need to fix from TC16 in SphereTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed tests in SphereTest and triangle, need to fix from TC16 in SphereTest" />
   </component>
 </project>

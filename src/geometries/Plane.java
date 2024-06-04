@@ -53,4 +53,26 @@ public class Plane implements Geometry {
     public Vector getNormal(Point p1) {
         return normal;
     }
+
+    @Override
+    public List<Point> findIntersections(Ray ray) {
+        // Calculate the dot product of the plane's normal vector and the ray's direction vector
+        double nv = normal.dotProduct(ray.getDirection());
+
+        // Check if the ray is parallel to the plane or lies on the plane
+        if (isZero(nv) || q==ray.getHead()){
+            return null;
+        }
+
+        // Calculate the parameter 't' representing the distance along the ray where it intersects the plane
+        double t = alignZero(normal.dotProduct(q.subtract(ray.getHead())) / nv);
+
+        // If the intersection point lies in front of the ray's head (t > 0), return a list containing the intersection point
+        if (t>0) {
+            return List.of(ray.getPoint(t));
+        }
+
+        // If the intersection point lies behind the ray's head (t ≤ 0), return null
+        return null;
+    }
 }

@@ -30,15 +30,25 @@ public class Sphere extends RadialGeometry {
 
     @Override
     public List<Point> findIntersections(Ray ray) {
+        // Check if the ray's head coincides with the sphere's center
+        if (ray.getHead().equals(center)){
+            // If so, return a list containing the point on the ray at a distance of the radius from its head
+            return List.of(ray.getPoint(radius));
+        }
+        // Calculate necessary parameters for intersection calculation
         Vector u = center.subtract(ray.getHead());
         double tm = alignZero(ray.getDirection().dotProduct(u));
         double d = alignZero(Math.sqrt(u.lengthSquared()-tm*tm));
+        // Check for no intersections
         if (d>=radius){
             return null;
         }
+        // Calculate distances from the intersection points to the ray's head
         double th = alignZero(Math.sqrt(radius*radius-d*d));
         double t1 = tm + th;
         double t2 = tm - th;
+
+        // Determine intersection points based on distances
         if (t1>0 && t2>0){
             return List.of(ray.getPoint(t1),ray.getPoint(t2));
         }
@@ -48,6 +58,7 @@ public class Sphere extends RadialGeometry {
         if (t2>0){
             return List.of(ray.getPoint(t2));
         }
+        // If no valid intersections found, return null
         return null;
     }
 }

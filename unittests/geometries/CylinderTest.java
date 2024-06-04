@@ -53,7 +53,6 @@ public class CylinderTest {
         expectedNormal = new Vector(0, 0, 1);
         assertEquals(expectedNormal, cylinder.getNormal(pointAtTopCenter), "Wrong normal for point at the center of the top base");
 
-        //**********  problem here!!!  ****************
         // Point at the center of the bottom base
         Point pointAtBottomCenter = new Point(0, 0, 0);
         expectedNormal = new Vector(0, 0, 1);
