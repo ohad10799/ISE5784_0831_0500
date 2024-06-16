@@ -8,7 +8,6 @@ import static primitives.Util.isZero;
 
 public class Camera implements Cloneable {
 
-
     private Point location;
     private Vector vTo;
     private Vector vUp;
@@ -18,7 +17,14 @@ public class Camera implements Cloneable {
     private double height = 0;
 
 
-    private Camera() {
+    private Camera(Builder builder) {
+        location = builder.location;
+        vTo = builder.vTo;
+        vUp = builder.vUp;
+        vRight = builder.vRight;
+        distance = builder.distance;
+        width = builder.width;
+        height = builder.height;
     }
 
     public Point getLocation() {
@@ -54,13 +60,32 @@ public class Camera implements Cloneable {
     }
 
     public Ray constructRay(int nX, int nY, int j, int i) {
-        return null;
+        Point pC = location.add(vTo.scale(distance));
+        double rY = height / nY;
+        double rX = width / nX;
+        double yi = -(i - ( nY - 1) / 2d) * rY;
+        double xj = (j - (nX - 1) / 2d) * rX;
+        Point pIJ = pC;
+        if (!isZero(xj)) {
+            pIJ = pIJ.add(vRight.scale(xj));
+        }
+        if (!isZero(yi)) {
+            pIJ = pIJ.add(vUp.scale(yi));
+        }
+        return new Ray(location, pIJ.subtract(location));
     }
 
 
     public static class Builder{
 
-        private final Camera camera = new Camera();
+        private Point location;
+        private Vector vTo;
+        private Vector vUp;
+        private Vector vRight;
+        private  double distance = 0;
+        private double width = 0;
+        private double height = 0;
+        private final Camera camera = new Camera(this);
 
         public Builder setLocation(Point location) {
             camera.location = location;
