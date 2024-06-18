@@ -204,13 +204,16 @@ public class Camera implements Cloneable {
                 throw new IllegalArgumentException("vTo and vUp are not orthogonal");
 
             camera.vRight = camera.vTo.crossProduct(camera.vUp).normalize();
-            return (Camera) camera.clone();
+            try {
+                return (Camera) camera.clone();
+            }
+            catch (CloneNotSupportedException ignore) {
+                return null;
+            }
         }
 
+
     }
-    @Override
-    public Camera clone(){
-        return this;
-    }
+
 
 }
