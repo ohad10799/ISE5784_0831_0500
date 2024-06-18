@@ -16,6 +16,7 @@ public class Camera implements Cloneable {
     private double distance = 0;
     private double width = 0;
     private double height = 0;
+    private SimpleRayTracer rayTracer;
 
     /**
      * Private constructor using Builder pattern.
@@ -210,6 +211,18 @@ public class Camera implements Cloneable {
             catch (CloneNotSupportedException ignore) {
                 return null;
             }
+
+        }
+
+
+        public Builder setRayTracer(SimpleRayTracer rayTracer) {
+            camera.rayTracer = rayTracer;
+            return this;
+        }
+
+        public Builder setImageWriter(ImageWriter imageWriter) {
+            camera.imageWriter = imageWriter;
+            return this;
         }
 
 
