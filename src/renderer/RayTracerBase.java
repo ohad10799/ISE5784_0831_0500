@@ -1,14 +1,20 @@
 package renderer;
 
+import primitives.*;
 import scene.Scene;
 
-public class RayTracerBase {
+public abstract class RayTracerBase {
 
-    private final Scene scene;
+    protected final Scene scene;
 
     public RayTracerBase(Scene scene) {
         this.scene = scene;
     }
 
+    public void renderImage(ImageWriter imageWriter) {
+    }
 
+    public Color traceRay(Ray ray) {
+        return Color.BLACK;
+    }
 }

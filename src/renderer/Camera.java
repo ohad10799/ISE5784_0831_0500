@@ -17,6 +17,7 @@ public class Camera implements Cloneable {
     private double width = 0;
     private double height = 0;
     private SimpleRayTracer rayTracer;
+    private ImageWriter imageWriter;
 
     /**
      * Private constructor using Builder pattern.
@@ -204,6 +205,13 @@ public class Camera implements Cloneable {
             if (camera.vTo.dotProduct(camera.vUp) != 0)
                 throw new IllegalArgumentException("vTo and vUp are not orthogonal");
 
+            if (camera.imageWriter==null){
+                throw new MissingResourceException("Missing parameter", "Camera", "imageWriter");
+            }
+            if (camera.rayTracer==null){
+                throw new MissingResourceException("Missing parameter", "Camera", "rayTracer");
+            }
+
             camera.vRight = camera.vTo.crossProduct(camera.vUp).normalize();
             try {
                 return (Camera) camera.clone();
@@ -226,7 +234,49 @@ public class Camera implements Cloneable {
         }
 
 
+
     }
+
+    public void printGrid(int interval, Color color) {
+        ImageWriter imageWriter = new ImageWriter("imageWriter", 800, 600);
+        int nX = imageWriter.getNx();
+        int nY = imageWriter.getNy();
+        for (int i = 0; i < nY; ++i) {
+            for (int j = 0; j < nX; ++j) {
+                if (i % interval == 0 || j % interval == 0)
+                    imageWriter.writePixel(j, i, color);
+            }
+        }
+        imageWriter.writeToImage();
+    }
+
+    public Camera renderImage() {
+        if(rayTracer == null){
+            throw new MissingResourceException("Missing parameter", "Camera", "rayTracer");
+        }
+        if(imageWriter == null){
+            throw new MissingResourceException("Missing parameter", "Camera", "imageWriter");
+        }
+        int nX = imageWriter.getNx();
+        int nY = imageWriter.getNy();
+        for (int i = 0; i < nY; ++i) {
+            for (int j = 0; j < nX; ++j) {
+                Ray ray = constructRay(nX, nY, j, i);
+                Color color = rayTracer.traceRay(ray);
+                imageWriter.writePixel(j, i, color);
+            }
+        }
+
+
+    }
+
+    public void writeToImage() {
+        if (imageWriter == null){
+            throw new MissingResourceException("Missing parameter", "Camera", "imageWriter");
+        }
+        imageWriter.writeToImage();
+    }
+
 
 
 }
