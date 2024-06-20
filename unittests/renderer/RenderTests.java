@@ -37,12 +37,12 @@ public class RenderTests {
          .setBackground(new Color(75, 127, 90));
 
       // right
-      cameraBuilder
+      Camera camera = cameraBuilder
          .setImageWriter(new ImageWriter("base render test", 1000, 1000))
-         .build()
-         .renderImage()
-         .printGrid(100, new Color(YELLOW))
-         .writeToImage();
+         .build();
+         camera.renderImage();
+         camera.printGrid(100, new Color(YELLOW));
+         camera.writeToImage();
    }
 
    /** Test for XML based scene - for bonus */
@@ -55,10 +55,10 @@ public class RenderTests {
 
       Camera camera = cameraBuilder
          .setImageWriter(new ImageWriter("xml render test", 1000, 1000))
-         .build()
-         .renderImage()
-         .printGrid(100, new Color(YELLOW))
-         .writeToImage();
+         .build();
+         camera.renderImage();
+         camera.printGrid(100, new Color(YELLOW));
+         camera.writeToImage();
    }
 }
 

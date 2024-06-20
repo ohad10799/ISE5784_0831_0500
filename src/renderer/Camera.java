@@ -233,12 +233,12 @@ public class Camera implements Cloneable {
             return this;
         }
 
-
-
     }
 
     public void printGrid(int interval, Color color) {
-        ImageWriter imageWriter = new ImageWriter("imageWriter", 800, 600);
+        if (imageWriter == null) {
+            throw new MissingResourceException("Missing parameter", "Camera", "imageWriter");
+        }
         int nX = imageWriter.getNx();
         int nY = imageWriter.getNy();
         for (int i = 0; i < nY; ++i) {
@@ -250,7 +250,7 @@ public class Camera implements Cloneable {
         imageWriter.writeToImage();
     }
 
-    public Camera renderImage() {
+    public void renderImage() {
         if(rayTracer == null){
             throw new MissingResourceException("Missing parameter", "Camera", "rayTracer");
         }
@@ -261,14 +261,18 @@ public class Camera implements Cloneable {
         int nY = imageWriter.getNy();
         for (int i = 0; i < nY; ++i) {
             for (int j = 0; j < nX; ++j) {
-                Ray ray = constructRay(nX, nY, j, i);
-                Color color = rayTracer.traceRay(ray);
-                imageWriter.writePixel(j, i, color);
+                castRay(nX, nY, j, i);
             }
         }
-
-
     }
+
+    private void castRay(int Nx, int Ny, int column, int row) {
+        Ray ray = constructRay(Nx, Ny, column, row);
+        Color color = rayTracer.traceRay(ray);
+        imageWriter.writePixel(column, row, color);
+    }
+
+
 
     public void writeToImage() {
         if (imageWriter == null){
