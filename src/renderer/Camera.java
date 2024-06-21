@@ -222,12 +222,21 @@ public class Camera implements Cloneable {
 
         }
 
-
+        /**
+         * Sets the ray tracer for the camera.
+         * @param rayTracer The ray tracer to set.
+         * @return The builder instance.
+         */
         public Builder setRayTracer(SimpleRayTracer rayTracer) {
             camera.rayTracer = rayTracer;
             return this;
         }
 
+        /**
+         * Sets the image writer for the camera.
+         * @param imageWriter The image writer to set.
+         * @return The builder instance.
+         */
         public Builder setImageWriter(ImageWriter imageWriter) {
             camera.imageWriter = imageWriter;
             return this;
@@ -235,6 +244,12 @@ public class Camera implements Cloneable {
 
     }
 
+    /**
+     * Prints a grid on the image.
+     * @param interval The interval between grid lines.
+     * @param color The color of the grid lines.
+     * @throws MissingResourceException if the image writer is not set.
+     */
     public void printGrid(int interval, Color color) {
         if (imageWriter == null) {
             throw new MissingResourceException("Missing parameter", "Camera", "imageWriter");
@@ -250,6 +265,10 @@ public class Camera implements Cloneable {
         imageWriter.writeToImage();
     }
 
+    /**
+     * Renders the image by casting rays through all pixels in the view plane.
+     * @throws MissingResourceException if the ray tracer or image writer is not set.
+     */
     public void renderImage() {
         if(rayTracer == null){
             throw new MissingResourceException("Missing parameter", "Camera", "rayTracer");
@@ -266,21 +285,28 @@ public class Camera implements Cloneable {
         }
     }
 
+    /**
+     * Casts a ray through a specific pixel in the view plane and writes the color to the image.
+     * @param Nx Number of horizontal pixels in the view plane.
+     * @param Ny Number of vertical pixels in the view plane.
+     * @param column Column index of the pixel.
+     * @param row Row index of the pixel.
+     */
     private void castRay(int Nx, int Ny, int column, int row) {
         Ray ray = constructRay(Nx, Ny, column, row);
         Color color = rayTracer.traceRay(ray);
         imageWriter.writePixel(column, row, color);
     }
 
-
-
+    /**
+     * Writes the image to a file.
+     * @throws MissingResourceException if the image writer is not set.
+     */
     public void writeToImage() {
         if (imageWriter == null){
             throw new MissingResourceException("Missing parameter", "Camera", "imageWriter");
         }
         imageWriter.writeToImage();
     }
-
-
 
 }

@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="question 4 on stage 5">
-      <change afterPath="$PROJECT_DIR$/images/base render test.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/xml render test.png" afterDir="false" />
+    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="finished stage 5 without documentation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/RayTracerBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/RayTracerBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/SimpleRayTracer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/SimpleRayTracer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/renderer/RenderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/renderer/RenderTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/renderer/integrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/renderer/integrationTest.java" afterDir="false" />
     </list>
     <list id="cb322a80-95a1-4bf5-badf-85de343acff9" name="Changes by wwwme" comment="">
       <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
@@ -463,7 +460,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1718823524810</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL‎-00032" summary="finished stage 5 without documentation">
+      <option name="closed" value="true" />
+      <created>1718887789978</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL‎-00032" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718887789978</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -479,7 +484,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="finished point and in the middle of vector" />
     <MESSAGE value="finish without triange, main, javaDoc and final checking" />
     <MESSAGE value="the full program without documantation" />
     <MESSAGE value="finished stage 1!" />
@@ -504,6 +508,7 @@
     <MESSAGE value="finished stage 4!" />
     <MESSAGE value="starting stage 5" />
     <MESSAGE value="question 4 on stage 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="question 4 on stage 5" />
+    <MESSAGE value="finished stage 5 without documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished stage 5 without documentation" />
   </component>
 </project>

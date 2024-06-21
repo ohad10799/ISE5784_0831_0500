@@ -66,6 +66,12 @@ public class Ray {
         return head.add(direction.scale(t));
     }
 
+    /**
+     * Finds the closest point to the head point from a list of points.
+     *
+     * @param points a list of points to search from
+     * @return the point closest to the head point, or null if the list is empty
+     */
     public Point findClosestPoint(List<Point> points){
         Point closest = null;
         double minDistance = Double.POSITIVE_INFINITY;
