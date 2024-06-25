@@ -1,7 +1,11 @@
 package geometries;
 
-import primitives.*;
+import primitives.Point;
+import primitives.Ray;
+import primitives.Vector;
+
 import java.util.List;
+
 import static primitives.Util.alignZero;
 
 /**
@@ -29,34 +33,34 @@ public class Sphere extends RadialGeometry {
     }
 
     @Override
-    public List<Point> findIntersections(Ray ray) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double distance) {
         // Check if the ray's head coincides with the sphere's center
-        if (ray.getHead().equals(center)){
+        if (ray.getHead().equals(center)) {
             // If so, return a list containing the point on the ray at a distance of the radius from its head
-            return List.of(ray.getPoint(radius));
+            return List.of(new GeoPoint(this, ray.getPoint(radius)));
         }
         // Calculate necessary parameters for intersection calculation
         Vector u = center.subtract(ray.getHead());
         double tm = alignZero(ray.getDirection().dotProduct(u));
-        double d = alignZero(Math.sqrt(u.lengthSquared()-tm*tm));
+        double d = alignZero(Math.sqrt(u.lengthSquared() - tm * tm));
         // Check for no intersections
-        if (d>=radius){
+        if (d >= radius || radius >= distance) {
             return null;
         }
         // Calculate distances from the intersection points to the ray's head
-        double th = alignZero(Math.sqrt(radius*radius-d*d));
-        double t1 = tm + th;
-        double t2 = tm - th;
+        double th = alignZero(Math.sqrt(radius * radius - d * d));
+        double t1 = alignZero( tm + th);
+        double t2 = alignZero( tm - th);
 
         // Determine intersection points based on distances
-        if (t1>0 && t2>0){
-            return List.of(ray.getPoint(t1),ray.getPoint(t2));
+        if (t1 > 0 && t2 > 0 && t1 < distance && t2 < distance) {
+            return List.of(new GeoPoint(this,ray.getPoint(t1)), new GeoPoint(this,ray.getPoint(t2)));
         }
-        if (t1>0){
-            return List.of(ray.getPoint(t1));
+        if (t1 > 0 && t1 < distance) {
+            return List.of(new GeoPoint(this,ray.getPoint(t1)));
         }
-        if (t2>0){
-            return List.of(ray.getPoint(t2));
+        if (t2 > 0 && t2 < distance) {
+            return List.of(new GeoPoint(this,ray.getPoint(t2)));
         }
         // If no valid intersections found, return null
         return null;

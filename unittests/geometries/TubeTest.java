@@ -5,10 +5,11 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Unit tests for the geometries.Tube class.
+ *
  * @author Ohad and Meir
  */
 class TubeTest {
@@ -29,7 +30,7 @@ class TubeTest {
         // =============== Boundary Values Tests ==================
         // Point opposite the ray's head
         Point p2 = new Point(-3, 0, 0);
-        assertEquals( new Vector(-1, 0, 0), tube.getNormal(p2), "Bad normal to tube when point is opposite to ray head");
+        assertEquals(new Vector(-1, 0, 0), tube.getNormal(p2), "Bad normal to tube when point is opposite to ray head");
     }
 
     @Test

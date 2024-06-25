@@ -3,6 +3,7 @@ package geometries;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
+
 /**
  * Represents a cylinder in 3D space, extending along a given axis with a specified height.
  * Inherits from the Tube class.
@@ -35,7 +36,7 @@ public class Cylinder extends Tube {
         Point p0 = axis.getHead();
         Vector v = axis.getDirection();
 
-        if(p0.equals(point)){
+        if (p0.equals(point)) {
             return v;
         }
 

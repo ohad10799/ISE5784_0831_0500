@@ -1,13 +1,16 @@
 package primitives;
 
+import java.util.Objects;
+
 /**
  * Represents a point in 3D space.
  */
 public class Point {
-    protected final Double3 xyz; // The coordinates of the point.
-
-    /** Zero triad (0,0,0) */
+    /**
+     * Zero triad (0,0,0)
+     */
     public static final Point ZERO = new Point(0, 0, 0); // Final static public Point ZERO;
+    protected final Double3 xyz; // The coordinates of the point.
 
     /**
      * Constructs a new Point with the given coordinates.
@@ -17,7 +20,7 @@ public class Point {
      * @param d3 The z-coordinate of the point.
      */
     public Point(double d1, double d2, double d3) {
-        this(new Double3(d1,d2,d3));
+        this(new Double3(d1, d2, d3));
     }
 
     /**
@@ -30,11 +33,12 @@ public class Point {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        return (obj instanceof Point other)
-                && this.xyz.equals(other.xyz);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Point point)) return false;
+        return xyz.equals( point.xyz);
     }
+
 
     @Override
     public String toString() {

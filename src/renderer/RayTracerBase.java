@@ -1,6 +1,7 @@
 package renderer;
 
-import primitives.*;
+import primitives.Color;
+import primitives.Ray;
 import scene.Scene;
 
 /**

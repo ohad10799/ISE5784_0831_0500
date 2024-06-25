@@ -45,7 +45,7 @@ public class Ray {
         return "head:" + head.xyz.toString() + " direction: " + direction.xyz.toString();
     }
 
-    public Point getHead(){
+    public Point getHead() {
         return head;
     }
 
@@ -57,12 +57,12 @@ public class Ray {
      * Calculates a point on the line of the ray, at a distance
      * given by the head of the ray
      *
-     * @param t  The distance from the head of the ray
+     * @param t The distance from the head of the ray
      */
-    public Point getPoint(double t){
-       if (isZero(t)){
-           return head;
-       }
+    public Point getPoint(double t) {
+        if (isZero(t)) {
+            return head;
+        }
         return head.add(direction.scale(t));
     }
 
@@ -72,12 +72,12 @@ public class Ray {
      * @param points a list of points to search from
      * @return the point closest to the head point, or null if the list is empty
      */
-    public Point findClosestPoint(List<Point> points){
+    public Point findClosestPoint(List<Point> points) {
         Point closest = null;
         double minDistance = Double.POSITIVE_INFINITY;
-        for (Point point : points){
+        for (Point point : points) {
             double distance = head.distanceSquared(point);
-            if (distance < minDistance){
+            if (distance < minDistance) {
                 minDistance = distance;
                 closest = point;
             }

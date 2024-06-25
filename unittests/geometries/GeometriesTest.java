@@ -13,10 +13,10 @@ class GeometriesTest {
     void testFindIntersections() {
 
         Ray testRay1 = new Ray(new Point(1, 1, 1), new Vector(1, 1, 1));
-        Geometries geometries1 = new Geometries(new Plane(new Point(2, 2, 2), new Vector(-1, -1, -1)),new Sphere(1, new Point(2, 2, 2)),new Plane(new Point(3, 3, 3), new Vector(0, 1, 0)));
-        Geometries geometries3 = new Geometries(new Sphere(1, new Point(3, 3, 3)),new Sphere(1, new Point(2, 2, 2)));
-        Geometries geometries4 = new Geometries(new Sphere(1, new Point(2, 2, 2)),new Sphere(1, new Point(1, 1, 1)));
-        Geometries geometries5 = new Geometries(new Sphere(1, new Point(1, 1, 1)),new Triangle(new Point(2, 1, 1), new Point(1, 2, 1), new Point(1, 1, 2)));
+        Geometries geometries1 = new Geometries(new Plane(new Point(2, 2, 2), new Vector(-1, -1, -1)), new Sphere(1, new Point(2, 2, 2)), new Plane(new Point(3, 3, 3), new Vector(0, 1, 0)));
+        Geometries geometries3 = new Geometries(new Sphere(1, new Point(3, 3, 3)), new Sphere(1, new Point(2, 2, 2)));
+        Geometries geometries4 = new Geometries(new Sphere(1, new Point(2, 2, 2)), new Sphere(1, new Point(1, 1, 1)));
+        Geometries geometries5 = new Geometries(new Sphere(1, new Point(1, 1, 1)), new Triangle(new Point(2, 1, 1), new Point(1, 2, 1), new Point(1, 1, 2)));
 
         // ============ Equivalence Partitions Tests ==============
         // Some shapes (but not all) are intersected

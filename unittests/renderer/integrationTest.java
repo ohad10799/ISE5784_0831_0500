@@ -1,18 +1,25 @@
 package renderer;
-import geometries.*;
-import org.junit.jupiter.api.Test;
-import primitives.*;
-import scene.Scene;
 
-import static org.junit.jupiter.api.Assertions.*;
+import geometries.Geometries;
+import geometries.Plane;
+import geometries.Sphere;
+import geometries.Triangle;
+import org.junit.jupiter.api.Test;
+import primitives.Point;
+import primitives.Vector;
+import scene.Scene;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 /**
- *  * Unit tests for integration of geometries with camera rays.
- *  * This class tests the number of intersections between rays constructed by the camera
- *  * and various geometries.
+ * * Unit tests for integration of geometries with camera rays.
+ * * This class tests the number of intersections between rays constructed by the camera
+ * * and various geometries.
+ *
  * @author Ohad and Meir
  */
 class integrationsTest {
@@ -20,12 +27,12 @@ class integrationsTest {
      * Calculates the number of intersection points between the rays constructed by the camera
      * and the given geometries.
      *
-     * @param g The geometries to test for intersections.
+     * @param g      The geometries to test for intersections.
      * @param camera The camera used to construct the rays.
      * @return A list of intersection points, or null if no intersections are found.
      */
-   public List<Point> numOfIntersections(Geometries g, Camera camera){
-       List<Point> result = new ArrayList<Point>();
+    public List<Point> numOfIntersections(Geometries g, Camera camera) {
+        List<Point> result = new ArrayList<Point>();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 List<Point> intersections = g.findIntersections(camera.constructRay(3, 3, j, i));
@@ -34,8 +41,8 @@ class integrationsTest {
                 }
             }
         }
-       return result.isEmpty() ? null : result;
-   }
+        return result.isEmpty() ? null : result;
+    }
 
     /**
      * Tests the number of intersections between the rays constructed by the camera

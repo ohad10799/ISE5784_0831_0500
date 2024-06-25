@@ -6,11 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Unit tests for the primitives.Point class.
+ *
  * @author Ohad and Meir
  */
 class PointTest {
 
-    Point p1 = new Point(1,2,3);
+    Point p1 = new Point(1, 2, 3);
 
     /**
      * Test method for {@link primitives.Point#subtract(primitives.Point)}.
@@ -19,7 +20,7 @@ class PointTest {
     void testSubtract() {
         // ============ Equivalence Partitions Tests ==============
         // subtract two non-zero not equal or opposite Points
-        assertEquals(new Vector(-1,-1,-1),p1.subtract(new Point(2,3,4)),"ERROR: subtract two regular points function not doing well");
+        assertEquals(new Vector(-1, -1, -1), p1.subtract(new Point(2, 3, 4)), "ERROR: subtract two regular points function not doing well");
 
         // =============== Boundary Values Tests ==================
         // subtract points with itself
@@ -34,7 +35,7 @@ class PointTest {
     void testAdd() {
         // ============ Equivalence Partitions Tests ==============
         // add regular Point and vector
-        assertEquals(new Point(3,5,7),p1.add(new Vector(2,3,4)),"ERROR: testAdd() regular point and vector not doing well");
+        assertEquals(new Point(3, 5, 7), p1.add(new Vector(2, 3, 4)), "ERROR: testAdd() regular point and vector not doing well");
     }
 
     /**
@@ -44,7 +45,7 @@ class PointTest {
     void testDistanceSquared() {
         // ============ Equivalence Partitions Tests ==============
         // distance of 2 regular points
-        assertEquals(3,p1.distanceSquared(new Point(2,3,4)),"ERROR: testAdd() regular point and vector not doing well");
+        assertEquals(3, p1.distanceSquared(new Point(2, 3, 4)), "ERROR: testAdd() regular point and vector not doing well");
 
     }
 
@@ -55,7 +56,7 @@ class PointTest {
     void testDistance() {
         // ============ Equivalence Partitions Tests ==============
         // distance of 2 regular points
-        assertEquals(Math.sqrt(3),p1.distance(new Point(2,3,4)),"ERROR: testAdd() regular point and vector not doing well");
+        assertEquals(Math.sqrt(3), p1.distance(new Point(2, 3, 4)), "ERROR: testAdd() regular point and vector not doing well");
 
     }
 }

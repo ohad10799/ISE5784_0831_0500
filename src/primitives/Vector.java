@@ -6,6 +6,10 @@ package primitives;
  */
 public class Vector extends Point {
 
+    public static final Vector Y =  new Vector(0, -1, 0);
+    public static final Vector Z =  new Vector(0, 0, -1);
+    public static final Vector X =  new Vector(1, 0, 0);
+
     /**
      * Constructs a new vector with the specified x, y, and z components.
      *
@@ -15,7 +19,7 @@ public class Vector extends Point {
      * @throws IllegalArgumentException If the vector is a zero vector.
      */
     public Vector(double d1, double d2, double d3) {
-        this(new Double3(d1,d2,d3));
+        this(new Double3(d1, d2, d3));
     }
 
     /**
@@ -38,7 +42,7 @@ public class Vector extends Point {
      * @return A new vector that is the result of the addition.
      */
     public Vector add(Vector v1) {
-        if (xyz.add(v1.xyz)==ZERO.xyz) {
+        if (xyz.add(v1.xyz) == ZERO.xyz) {
             throw new IllegalArgumentException("adding the opposite vectors get vector ZERO!");
         }
         return new Vector(xyz.add(v1.xyz));
@@ -51,7 +55,7 @@ public class Vector extends Point {
      * @return A new vector that is the result of the scaling.
      */
     public Vector scale(double rhs) {
-        if (rhs==0) {
+        if (rhs == 0) {
             throw new IllegalArgumentException("The scale is zero, the vector is the zero vector!");
         }
         return new Vector(xyz.scale(rhs));
@@ -131,6 +135,8 @@ public class Vector extends Point {
      * @return True if the objects are equal, false otherwise.
      */
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj) return true;
+        if (!(obj instanceof Vector vector)) return false;
+        return xyz.equals( vector.xyz);
     }
 }
