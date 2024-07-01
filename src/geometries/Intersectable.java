@@ -43,10 +43,8 @@ public abstract class Intersectable {
      * @return a list of points where the ray intersects the geometric shape, or an empty list if there are no intersections
      */
     public List<Point> findIntersections(Ray ray) {
-        return findGeoIntersections(ray)
-                .stream()
-                .map(gp -> gp.point)
-                .toList();
+        var geoList = findGeoIntersections(ray);
+        return geoList == null ? null : geoList.stream().map(gp -> gp.point).toList();
     }
 
     public final List<GeoPoint> findGeoIntersections(Ray ray) {

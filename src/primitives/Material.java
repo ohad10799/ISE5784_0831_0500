@@ -1,9 +1,9 @@
 package primitives;
 
 public class Material {
-    private Double3 kd = new Double3(0d);
-    private Double3 ks = new Double3(0d);
-    private int shininess =1;
+    public Double3 kd = new Double3(0d);
+    public Double3 ks = new Double3(0d);
+    public int shininess = 1;
 
     public Material setKd(Double3 kd) {
         this.kd = kd;

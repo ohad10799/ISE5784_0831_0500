@@ -6,9 +6,10 @@ package primitives;
  */
 public class Vector extends Point {
 
-    public static final Vector Y =  new Vector(0, -1, 0);
+    public static final Vector Y =  new Vector(0, 1, 0);
     public static final Vector Z =  new Vector(0, 0, -1);
     public static final Vector X =  new Vector(1, 0, 0);
+    public static final Vector ZERO = new Vector(0, 0, 0);
 
     /**
      * Constructs a new vector with the specified x, y, and z components.

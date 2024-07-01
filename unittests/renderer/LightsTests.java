@@ -1,21 +1,12 @@
 package renderer;
 
-import geometries.Geometry;
-import geometries.Sphere;
-import geometries.Triangle;
-import lighting.AmbientLight;
-import lighting.DirectionalLight;
-import lighting.PointLight;
-import lighting.SpotLight;
+import geometries.*;
+import lighting.*;
 import org.junit.jupiter.api.Test;
 import primitives.*;
-import renderer.Camera;
-import renderer.ImageWriter;
-import renderer.SimpleRayTracer;
 import scene.Scene;
+import static java.awt.Color.*;
 
-import static java.awt.Color.BLUE;
-import static java.awt.Color.WHITE;
 
 /**
  * Test rendering a basic image
@@ -59,18 +50,20 @@ public class LightsTests {
     /**
      * First camera builder for some of tests
      */
+
     private final Camera.Builder camera1 = Camera.getBuilder()
             .setRayTracer(new SimpleRayTracer(scene1))
             .setLocation(new Point(0, 0, 1000))
-            .setDirection(new Point(0, 0, 1000).subtract(Point.ZERO), Vector.Y)
+            .setDirection(Vector.Z, Vector.Y)
             .setVpSize(150, 150).setVpDistance(1000);
     /**
      * Second camera builder for some of tests
      */
+    ////////////////////////////////////////////////////////////////////////////////////////
     private final Camera.Builder camera2 = Camera.getBuilder()
             .setRayTracer(new SimpleRayTracer(scene2))
             .setLocation(new Point(0, 0, 1000))
-            .setDirection(Point.ZERO, Vector.Y)
+            .setDirection(Vector.Z, Vector.Y)
             .setVpSize(200, 200).setVpDistance(1000);
     /**
      * Material for some of the geometries in the tests
@@ -196,7 +189,6 @@ public class LightsTests {
     public void trianglesDirectional() {
         scene2.geometries.add(triangle1, triangle2);
         scene2.lights.add(new DirectionalLight(trianglesLightColor, trianglesLightDirection));
-
         camera2.setImageWriter(new ImageWriter("lightTrianglesDirectional", 500, 500)) //
                 .build()
                 .renderImage()
@@ -234,8 +226,8 @@ public class LightsTests {
     }
 
 //       /**
-     //     * Produce a picture of a sphere lighted by a narrow spotlight
-     //     */
+//          * Produce a picture of a sphere lighted by a narrow spotlight
+//          */
 //    @Test
 //    public void sphereSpotSharp() {
 //        scene1.geometries.add(sphere);

@@ -10,7 +10,7 @@ import primitives.Vector;
  */
 public abstract class Geometry extends Intersectable {
     protected Color emission = Color.BLACK;
-    protected Material material = new Material();
+    private Material material = new Material();
     /**
      * Calculates the normal vector to the surface of the geometric shape
      * at the specified point.
@@ -32,5 +32,9 @@ public abstract class Geometry extends Intersectable {
     public Geometry setMaterial(Material material) {
         this.material = material;
         return this;
+    }
+
+    public Material getMaterial() {
+        return material;
     }
 }
