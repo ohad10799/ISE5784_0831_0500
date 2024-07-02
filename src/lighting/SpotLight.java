@@ -5,11 +5,11 @@ import primitives.Point;
 import primitives.Vector;
 
 public class SpotLight extends PointLight {
-private final Vector direction;
+    private final Vector direction;
 
-public SpotLight(Color intensity, Point position, Vector direction) {
-    super(intensity, position);
-    this.direction = direction.normalize();
+    public SpotLight(Color intensity, Point position, Vector direction) {
+        super(intensity, position);
+        this.direction = direction.normalize();
     }
 
     @Override
@@ -28,5 +28,11 @@ public SpotLight(Color intensity, Point position, Vector direction) {
     public SpotLight setKc(double kc) {
         super.setKc(kc);
         return this;
+    }
+
+    @Override
+    public Color getIntensity(Point p) {
+        Color baseIntensity = super.getIntensity(p);
+        return baseIntensity.scale(Math.max(0, direction.dotProduct(getL(p))));
     }
 }

@@ -3,7 +3,6 @@ package primitives;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Unit tests for the primitives.Vector class.
@@ -23,8 +22,7 @@ class VectorTest {
         // ============ Equivalence Partitions Tests ==============
 
         // Test normal vector creation
-        Vector v = new Vector(1, 2, 3);
-        assertEquals(new Double3(1, 2, 3), v.xyz, "Vector should have correct coordinates");
+        assertEquals(new Double3(1, 2, 3), v1.xyz, "Vector should have correct coordinates");
 
         // =============== Boundary Values Tests ==================
 

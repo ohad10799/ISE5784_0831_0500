@@ -1,15 +1,16 @@
 package primitives;
 
 public class Material {
-    public Double3 kd = new Double3(0d);
-    public Double3 ks = new Double3(0d);
+    public Double3 kd = Double3.ZERO;
+    public Double3 ks = Double3.ZERO;
     public int shininess = 1;
 
     public Material setKd(Double3 kd) {
         this.kd = kd;
         return this;
     }
- public Material setKd(double kd) {
+
+    public Material setKd(double kd) {
         this.kd = new Double3(kd);
         return this;
     }
@@ -18,6 +19,7 @@ public class Material {
         this.ks = ks;
         return this;
     }
+
     public Material setKs(double ks) {
         this.ks = new Double3(ks);
         return this;

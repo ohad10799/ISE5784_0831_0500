@@ -94,8 +94,8 @@ public class Polygon extends Geometry {
     }
 
     @Override
-    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double distance) {
-       // we don't want any education...
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance) {
+        // we don't want any education...
         return null;
     }
 }

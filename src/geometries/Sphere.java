@@ -33,7 +33,7 @@ public class Sphere extends RadialGeometry {
     }
 
     @Override
-    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double distance) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance) {
         // Check if the ray's head coincides with the sphere's center
         if (ray.getHead().equals(center)) {
             // If so, return a list containing the point on the ray at a distance of the radius from its head
@@ -49,18 +49,18 @@ public class Sphere extends RadialGeometry {
         }
         // Calculate distances from the intersection points to the ray's head
         double th = alignZero(Math.sqrt(radius * radius - d * d));
-        double t1 = alignZero( tm + th);
-        double t2 = alignZero( tm - th);
+        double t1 = alignZero(tm + th);
+        double t2 = alignZero(tm - th);
 
         // Determine intersection points based on distances
         if (t1 > 0 && t2 > 0 && t1 < distance && t2 < distance) {
-            return List.of(new GeoPoint(this,ray.getPoint(t1)), new GeoPoint(this,ray.getPoint(t2)));
+            return List.of(new GeoPoint(this, ray.getPoint(t1)), new GeoPoint(this, ray.getPoint(t2)));
         }
         if (t1 > 0 && t1 < distance) {
-            return List.of(new GeoPoint(this,ray.getPoint(t1)));
+            return List.of(new GeoPoint(this, ray.getPoint(t1)));
         }
         if (t2 > 0 && t2 < distance) {
-            return List.of(new GeoPoint(this,ray.getPoint(t2)));
+            return List.of(new GeoPoint(this, ray.getPoint(t2)));
         }
         // If no valid intersections found, return null
         return null;

@@ -1,7 +1,5 @@
 package primitives;
 
-import java.util.Objects;
-
 /**
  * Represents a point in 3D space.
  */
@@ -36,7 +34,7 @@ public class Point {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Point point)) return false;
-        return xyz.equals( point.xyz);
+        return xyz.equals(point.xyz);
     }
 
 
@@ -52,7 +50,11 @@ public class Point {
      * @return The vector from this point to the other point.
      */
     public Vector subtract(Point p1) {
-        return new Vector(xyz.subtract(p1.xyz));
+        Double3 val = xyz.subtract(p1.xyz);
+        if (val.equals(Double3.ZERO)) {
+            throw new IllegalArgumentException("subtracting the same point get vector ZERO!");
+        }
+        return new Vector(val);
     }
 
     /**

@@ -1,6 +1,5 @@
 package geometries;
 
-import primitives.Point;
 import primitives.Ray;
 
 import java.util.Collections;
@@ -22,13 +21,13 @@ public class Geometries extends Intersectable {
     }
 
     @Override
-    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double distance) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance) {
         // Initialize the result list to null
         List<GeoPoint> result = null;
 
         // Iterate through each geometry in the scene
         for (Intersectable geo : geometries) {
-            List<GeoPoint> geoPoints = geo.findGeoIntersections(ray);
+            List<GeoPoint> geoPoints = geo.findGeoIntersections(ray,distance);
 
             // If intersection points exist for the current geometry
             if (geoPoints != null) {

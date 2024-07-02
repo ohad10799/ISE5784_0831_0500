@@ -6,10 +6,10 @@ package primitives;
  */
 public class Vector extends Point {
 
-    public static final Vector Y =  new Vector(0, 1, 0);
-    public static final Vector Z =  new Vector(0, 0, -1);
-    public static final Vector X =  new Vector(1, 0, 0);
-    public static final Vector ZERO = new Vector(0, 0, 0);
+    public static final Vector Y = new Vector(0, 1, 0);
+    public static final Vector Z = new Vector(0, 0, -1);
+    public static final Vector X = new Vector(1, 0, 0);
+
 
     /**
      * Constructs a new vector with the specified x, y, and z components.
@@ -31,7 +31,7 @@ public class Vector extends Point {
      */
     public Vector(Double3 xyz) {
         super(xyz);
-        if (equals(ZERO)) {
+        if (xyz.equals(Double3.ZERO)) {
             throw new IllegalArgumentException("Vector can't be zero!");
         }
     }
@@ -43,10 +43,13 @@ public class Vector extends Point {
      * @return A new vector that is the result of the addition.
      */
     public Vector add(Vector v1) {
-        if (xyz.add(v1.xyz) == ZERO.xyz) {
+        Double3 val = xyz.add(v1.xyz);
+
+        if (val.equals(Double3.ZERO)) {
             throw new IllegalArgumentException("adding the opposite vectors get vector ZERO!");
         }
-        return new Vector(xyz.add(v1.xyz));
+
+        return new Vector(val);
     }
 
     /**
@@ -138,6 +141,6 @@ public class Vector extends Point {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (!(obj instanceof Vector vector)) return false;
-        return xyz.equals( vector.xyz);
+        return xyz.equals(vector.xyz);
     }
 }

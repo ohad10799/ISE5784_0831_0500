@@ -1,6 +1,9 @@
 package geometries;
 
-import primitives.*;
+import primitives.Point;
+import primitives.Ray;
+import primitives.Vector;
+
 import java.util.List;
 
 import static primitives.Util.alignZero;
@@ -57,7 +60,7 @@ public class Plane extends Geometry {
     }
 
     @Override
-    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double distance) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance) {
         // Calculate the dot product of the plane's normal vector and the ray's direction vector
         double nv = normal.dotProduct(ray.getDirection());
 

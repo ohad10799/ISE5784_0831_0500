@@ -7,6 +7,7 @@ import primitives.Vector;
 
 import java.util.MissingResourceException;
 
+import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
 /**
@@ -25,19 +26,22 @@ public class Camera implements Cloneable {
     private SimpleRayTracer rayTracer;
     private ImageWriter imageWriter;
 
-    /**
-     * Private constructor using Builder pattern.
-     *
-     * @param builder The builder instance.
-     */
-    private Camera(Builder builder) {
-        location = builder.location;
-        vTo = builder.vTo;
-        vUp = builder.vUp;
-        vRight = builder.vRight;
-        distance = builder.distance;
-        width = builder.width;
-        height = builder.height;
+//    /**
+//     * Private constructor using Builder pattern.
+//     *
+//     * @param builder The builder instance.
+//     */
+//    private Camera(Builder builder) {
+//        location = builder.location;
+//        vTo = builder.vTo;
+//        vUp = builder.vUp;
+//        vRight = builder.vRight;
+//        distance = builder.distance;
+//        width = builder.width;
+//        height = builder.height;
+//    }
+
+    private Camera() {
     }
 
     /**
@@ -107,17 +111,23 @@ public class Camera implements Cloneable {
      */
     public Ray constructRay(int nX, int nY, int j, int i) {
         Point pC = location.add(vTo.scale(distance));
+
         double rY = height / nY;
         double rX = width / nX;
-        double yi = -(i - (nY - 1) / 2d) * rY;
-        double xj = (j - (nX - 1) / 2d) * rX;
+
+        double yi = alignZero(-(i - (nY - 1) / 2d) * rY);
+        double xj =alignZero( (j - (nX - 1) / 2d) * rX);
+
         Point pIJ = pC;
+
         if (!isZero(xj)) {
             pIJ = pIJ.add(vRight.scale(xj));
         }
+
         if (!isZero(yi)) {
             pIJ = pIJ.add(vUp.scale(yi));
         }
+
         return new Ray(location, pIJ.subtract(location));
     }
 
@@ -132,16 +142,20 @@ public class Camera implements Cloneable {
         if (imageWriter == null) {
             throw new MissingResourceException("Missing parameter", "Camera", "imageWriter");
         }
+
         int nX = imageWriter.getNx();
         int nY = imageWriter.getNy();
+
         for (int i = 0; i < nY; ++i) {
             for (int j = 0; j < nX; ++j) {
                 if (i % interval == 0 || j % interval == 0)
                     imageWriter.writePixel(j, i, color);
             }
         }
+
         imageWriter.writeToImage();
-        return  this;
+
+        return this;
     }
 
     /**
@@ -163,7 +177,7 @@ public class Camera implements Cloneable {
                 castRay(nX, nY, j, i);
             }
         }
-        return  this;
+        return this;
     }
 
     /**
@@ -197,14 +211,7 @@ public class Camera implements Cloneable {
      */
     public static class Builder {
 
-        private final Camera camera = new Camera(this);
-        private Point location;
-        private Vector vTo = null;
-        private Vector vUp = null;
-        private Vector vRight = null;
-        private double distance = 0d;
-        private double width = 0d;
-        private double height = 0d;
+        private final Camera camera = new Camera();
 
         /**
          * Sets the location of the camera.

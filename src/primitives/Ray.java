@@ -1,9 +1,10 @@
 package primitives;
 
+import geometries.Intersectable.GeoPoint;
+
 import java.util.List;
 
 import static primitives.Util.isZero;
-import geometries.Intersectable.GeoPoint;
 
 /**
  * Represents a ray in 3D space, defined by a starting point (head) and a direction.
@@ -75,17 +76,21 @@ public class Ray {
      */
     public Point findClosestPoint(List<Point> points) {
         return points == null || points.isEmpty() ? null
-                : findClosestGeoPoint(points.stream().map(p -> new GeoPoint(null, p)).toList()).point;
+                : findClosestGeoPoint(points
+                .stream()
+                .map(p -> new GeoPoint(null, p))
+                .toList())
+                .point;
     }
 
     public GeoPoint findClosestGeoPoint(List<GeoPoint> points) {
         GeoPoint closest = null;
         double minDistance = Double.POSITIVE_INFINITY;
-        for (GeoPoint point : points) {
-            double distance = head.distanceSquared(point.point);
+        for (GeoPoint gp : points) {
+            double distance = head.distanceSquared(gp.point);
             if (distance < minDistance) {
                 minDistance = distance;
-                closest = point;
+                closest = gp;
             }
         }
         return closest;

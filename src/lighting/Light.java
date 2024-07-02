@@ -2,7 +2,6 @@ package lighting;
 
 import primitives.Color;
 import primitives.Point;
-import primitives.Vector;
 
 public abstract class Light {
     protected Color intensity = Color.BLACK;
@@ -10,8 +9,14 @@ public abstract class Light {
     protected Light(Color intensity) {
         this.intensity = intensity;
     }
+
     public Color getIntensity() {
         return intensity;
+    }
+
+    public double getDistance(Point p) {
+        // default distance value for light
+        return Double.POSITIVE_INFINITY;
     }
 
 

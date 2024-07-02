@@ -1,10 +1,11 @@
 package renderer;
 
+import primitives.*;
 import geometries.*;
 import lighting.*;
 import org.junit.jupiter.api.Test;
-import primitives.*;
 import scene.Scene;
+
 import static java.awt.Color.*;
 
 
@@ -122,7 +123,7 @@ public class LightsTests {
     /**
      * The sphere in appropriate tests
      */
-    private final Geometry sphere = new Sphere(SPHERE_RADIUS,sphereCenter)
+    private final Geometry sphere = new Sphere(SPHERE_RADIUS, sphereCenter)
             .setEmission(sphereColor)
             .setMaterial(new Material()
                     .setKd(KD).setKs(KS)
@@ -255,5 +256,39 @@ public class LightsTests {
 //                .renderImage()
 //                .writeToImage();
 //    }
+
+    /**
+     * Produce a picture of two triangles lighted by a directional light, PointLight and spotlight.
+     * and the sphere we have added
+     */
+    @Test
+    public void multipleGeometriesAndLightings() {
+
+        Scene combinedScene = new Scene("Combined Test Scene")
+                .setAmbientLight(new AmbientLight(new Color(BLUE), new Double3(0.15)));
+        combinedScene.geometries.add(sphere, triangle1, triangle2);
+
+        combinedScene.lights.add(new DirectionalLight(sphereLightColor, sphereLightDirection));
+        combinedScene.lights.add(new PointLight(new Color(500, 300, 0), new Point(50, 50, 50))
+                .setKl(0.001).setKq(0.0002));
+        combinedScene.lights.add(new SpotLight(new Color(400, 400, 400), new Point(-50, -50, 25), new Vector(1, 1, -0.5))
+                .setKl(0.0005).setKq(0.0001));
+        combinedScene.lights.add(new DirectionalLight(trianglesLightColor, trianglesLightDirection));
+        combinedScene.lights.add(new PointLight(new Color(500, 300, 0), new Point(50, -30, -100))
+                .setKl(0.001).setKq(0.0002));
+        combinedScene.lights.add(new SpotLight(new Color(400, 400, 400), new Point(30, 10, -100), new Vector(-2, -2, -2))
+                .setKl(0.0005).setKq(0.0001));
+
+        Camera.Builder combinedCamera = Camera.getBuilder()
+                .setRayTracer(new SimpleRayTracer(combinedScene))
+                .setLocation(new Point(0, 0, 1000))
+                .setDirection(Vector.Z, Vector.Y)
+                .setVpSize(200, 200).setVpDistance(1000);
+
+        combinedCamera.setImageWriter(new ImageWriter("lightMultipleGeometriesAndLightings", 500, 500))
+                .build()
+                .renderImage()
+                .writeToImage();
+    }
 
 }
