@@ -6,16 +6,34 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Represents a collection of intersectable geometries in a scene.
+ * Extends the Intersectable abstract class to provide intersection
+ * calculations for all contained geometries.
+ */
 public class Geometries extends Intersectable {
     final private List<Intersectable> geometries = new LinkedList<>();
 
+    /**
+     * Constructs an empty collection of geometries.
+     */
     public Geometries() {
     }
 
+    /**
+     * Constructs a collection of geometries initialized with the given geometries.
+     *
+     * @param geometries the initial geometries to add to this collection
+     */
     public Geometries(Intersectable... geometries) {
         add(geometries);
     }
 
+    /**
+     * Adds one or more geometries to this collection.
+     *
+     * @param geometries the geometries to add
+     */
     public void add(Intersectable... geometries) {
         Collections.addAll(this.geometries, geometries);
     }

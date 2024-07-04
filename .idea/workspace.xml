@@ -4,88 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="stage 6 middle">
-      <change afterPath="$PROJECT_DIR$/images/lightMultipleGeometriesAndLightings.png" afterDir="false" />
+    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="stage 6 without documentation">
+      <change afterPath="$PROJECT_DIR$/images/lightSphereMultipleLights.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/lightTrianglesMultipleLights.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/allclasses-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/Cylinder.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/Cylinder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/CylinderTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/CylinderTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/Geometries.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/Geometries.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/Geometry.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/Geometry.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/Intersectable.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/Intersectable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/Plane.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/Plane.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/Polygon.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/Polygon.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/PolygonTests.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/PolygonTests.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/RadialGeometry.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/RadialGeometry.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/Sphere.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/Sphere.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/Triangle.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/Triangle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/Tube.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/Tube.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-14.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-15.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-16.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/index-files/index-17.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-17.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/index-files/index-19.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-19.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/index-files/index-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/lighting/AmbientLight.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/lighting/AmbientLight.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/lighting/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/lighting/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/primitives/Color.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/primitives/Color.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/primitives/Double3.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/primitives/Double3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/primitives/Point.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/primitives/Point.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/primitives/Ray.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/primitives/Ray.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/primitives/Util.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/primitives/Util.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/primitives/Vector.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/primitives/Vector.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/primitives/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/primitives/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/renderer/Camera.Builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/renderer/Camera.Builder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/renderer/Camera.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/renderer/Camera.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/renderer/ImageWriter.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/renderer/ImageWriter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/renderer/ImageWriterTests.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/renderer/ImageWriterTests.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/renderer/RayTracerBase.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/renderer/RayTracerBase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/renderer/RenderTests.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/renderer/RenderTests.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/renderer/Scene.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/renderer/Scene.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/renderer/SimpleRayTracer.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/renderer/SimpleRayTracer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/renderer/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/renderer/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/scene/Scene.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/scene/Scene.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/scene/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/scene/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/test/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/test/Main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/test/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/test/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/lightSphereSpot.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/lightSphereSpot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/lightTrianglesSpot.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/lightTrianglesSpot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/lightMultipleGeometriesAndLightings.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geometries/Geometries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometries.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geometries/Geometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geometries/Intersectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Intersectable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Polygon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lighting/AmbientLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/AmbientLight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lighting/DirectionalLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/DirectionalLight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lighting/Light.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/Light.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lighting/LightSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/LightSource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lighting/PointLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/PointLight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lighting/SpotLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/SpotLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Double3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Double3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/primitives/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Material.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Point.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Vector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/SimpleRayTracer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/SimpleRayTracer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/CylinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/CylinderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/GeometriesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/GeometriesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/PlaneTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/PolygonTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/PolygonTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/RadialGeometryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/RadialGeometryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/geometries/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometries/TriangleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/primitives/PointTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/primitives/PointTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/primitives/RayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/primitives/RayTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/primitives/VectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/primitives/VectorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/renderer/LightsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/renderer/LightsTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/renderer/RenderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/renderer/RenderTests.java" afterDir="false" />
     </list>
     <list id="cb322a80-95a1-4bf5-badf-85de343acff9" name="Changes by wwwme" comment="">
       <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
@@ -147,6 +85,7 @@
     "JUnit.GeometriesTest.testFindIntersections.executor": "Run",
     "JUnit.ImageWriterTests.executor": "Run",
     "JUnit.LightsTests.executor": "Run",
+    "JUnit.LightsTests.sphereMultipleLights.executor": "Run",
     "JUnit.LightsTests.trianglesPoint.executor": "Run",
     "JUnit.PlaneTest.executor": "Run",
     "JUnit.PlaneTest.testFindIntersections.executor": "Run",
@@ -234,6 +173,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LightsTests.sphereMultipleLights" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5784_0831_0500" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.LightsTests" />
+      <option name="METHOD_NAME" value="sphereMultipleLights" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LightsTests.trianglesPoint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5784_0831_0500" />
       <extension name="coverage">
@@ -266,29 +221,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VectorTest.testConstructorWithThreeValues" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5784_0831_0500" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="primitives.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="primitives" />
-      <option name="MAIN_CLASS_NAME" value="primitives.VectorTest" />
-      <option name="METHOD_NAME" value="testConstructorWithThreeValues" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in ISE5784_0831_0500 (1)" />
         <item itemvalue="JUnit.LightsTests" />
+        <item itemvalue="JUnit.LightsTests.sphereMultipleLights" />
         <item itemvalue="JUnit.LightsTests.trianglesPoint" />
         <item itemvalue="JUnit.VectorTest" />
-        <item itemvalue="JUnit.VectorTest.testConstructorWithThreeValues" />
       </list>
     </recent_temporary>
   </component>
@@ -581,7 +520,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1719846674111</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL‎-00036" summary="stage 6 without documentation">
+      <option name="closed" value="true" />
+      <created>1719933771037</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL‎-00036" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1719933771037</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -597,7 +544,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="finished stage 1!" />
     <MESSAGE value="added test classes" />
     <MESSAGE value="added test classes and some tests in vector" />
     <MESSAGE value="finished vectorTest and in the middle of pointTest" />
@@ -622,17 +568,7 @@
     <MESSAGE value="finished stage 5 without documentation" />
     <MESSAGE value="finished stage 5!" />
     <MESSAGE value="stage 6 middle" />
-    <option name="LAST_COMMIT_MESSAGE" value="stage 6 middle" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/primitives/Vector.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="stage 6 without documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="stage 6 without documentation" />
   </component>
 </project>

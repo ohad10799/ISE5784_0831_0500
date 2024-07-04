@@ -56,10 +56,10 @@ public class Ray {
     }
 
     /**
-     * Calculates a point on the line of the ray, at a distance
-     * given by the head of the ray
+     * Calculates a point on the Ray at a distance given by parameter t.
      *
-     * @param t The distance from the head of the ray
+     * @param t the distance from the head of the Ray
+     * @return the point on the Ray at distance t from the head
      */
     public Point getPoint(double t) {
         if (isZero(t)) {
@@ -69,10 +69,10 @@ public class Ray {
     }
 
     /**
-     * Finds the closest point to the head point from a list of points.
+     * Finds the closest point to the head of the Ray from a list of points.
      *
      * @param points a list of points to search from
-     * @return the point closest to the head point, or null if the list is empty
+     * @return the point closest to the head of the Ray, or null if the list is empty
      */
     public Point findClosestPoint(List<Point> points) {
         return points == null || points.isEmpty() ? null
@@ -83,6 +83,12 @@ public class Ray {
                 .point;
     }
 
+    /**
+     * Finds the closest GeoPoint to the head of the Ray from a list of GeoPoints.
+     *
+     * @param points a list of GeoPoints to search from
+     * @return the GeoPoint closest to the head of the Ray, or null if the list is empty
+     */
     public GeoPoint findClosestGeoPoint(List<GeoPoint> points) {
         GeoPoint closest = null;
         double minDistance = Double.POSITIVE_INFINITY;

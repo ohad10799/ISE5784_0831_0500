@@ -26,21 +26,6 @@ public class Camera implements Cloneable {
     private SimpleRayTracer rayTracer;
     private ImageWriter imageWriter;
 
-//    /**
-//     * Private constructor using Builder pattern.
-//     *
-//     * @param builder The builder instance.
-//     */
-//    private Camera(Builder builder) {
-//        location = builder.location;
-//        vTo = builder.vTo;
-//        vUp = builder.vUp;
-//        vRight = builder.vRight;
-//        distance = builder.distance;
-//        width = builder.width;
-//        height = builder.height;
-//    }
-
     private Camera() {
     }
 
