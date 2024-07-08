@@ -16,6 +16,7 @@ import static primitives.Util.alignZero;
  */
 public class SimpleRayTracer extends RayTracerBase {
 
+    private static final double DELTA = 0.1;
     /**
      * Constructs a SimpleRayTracer with the specified scene.
      *
@@ -80,7 +81,7 @@ public class SimpleRayTracer extends RayTracerBase {
                 continue;
             double nl = alignZero(n.dotProduct(l));
 
-            if (nl * nv > 0) { // sign(nl) == sign(nv)
+            if (nl * nv > 0 && unshaded(gp, l, n,lightSource)) { // sign(nl) == sign(nv)
                 Color lightIntensity = lightSource.getIntensity(gp.point);
                 Double3 factor =
                         calcDiffusive(kd, nl)
@@ -125,7 +126,28 @@ public class SimpleRayTracer extends RayTracerBase {
 
     }
 
+    private boolean unshaded(GeoPoint gp, Vector l, Vector n, LightSource lightSource) {
 
+        Vector lightDirection = l.scale(-1); // from point to light source
+
+        Vector epsVector = n.scale(n.dotProduct(lightDirection) > 0 ? DELTA : -DELTA);
+        Point point = gp.point.add(epsVector);
+
+        Ray ray = new Ray(point, lightDirection);
+        List<GeoPoint> intersections = scene.geometries.findGeoIntersections(ray);
+
+        if(intersections == null)
+            return true;
+        if(lightSource != null)
+        {
+            double lightDistance = lightSource.getDistance(gp.point);
+            for (GeoPoint geoPoint : intersections) {
+                if (alignZero(geoPoint.point.distance(gp.point) - lightDistance) <= 0)
+                    return false;
+            }
+        }
+        return true;
+    }
 
 
 }
