@@ -16,7 +16,12 @@ import static primitives.Util.alignZero;
  */
 public class SimpleRayTracer extends RayTracerBase {
 
+    /**
+     * Small constant used for offsetting rays slightly from intersection points to prevent self-shadowing artifacts.
+     * Adjusting this value can affect the smoothness of shadows and specular highlights in the rendered scene.
+     */
     private static final double DELTA = 0.1;
+
     /**
      * Constructs a SimpleRayTracer with the specified scene.
      *
@@ -126,6 +131,15 @@ public class SimpleRayTracer extends RayTracerBase {
 
     }
 
+    /**
+     * Checks if the point is unshaded by other geometries towards the light source.
+     *
+     * @param gp          the intersection point and associated geometry
+     * @param l           the direction vector from the light source to the point
+     * @param n           the normal vector at the intersection point
+     * @param lightSource the light source to check shading against
+     * @return true if the point is unshaded, false otherwise
+     */
     private boolean unshaded(GeoPoint gp, Vector l, Vector n, LightSource lightSource) {
 
         Vector lightDirection = l.scale(-1); // from point to light source

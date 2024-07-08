@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="finished stage 6!">
-      <change afterPath="$PROJECT_DIR$/unittests/renderer/ShadowTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lighting/DirectionalLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/DirectionalLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lighting/LightSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/LightSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/SimpleRayTracer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/SimpleRayTracer.java" afterDir="false" />
+    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="7.1 add shadow">
+      <change afterPath="$PROJECT_DIR$/images/shadowSphereTriangleInitial.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/shadowSphereTriangleMove1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/shadowSphereTriangleMove2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/shadowSphereTriangleSpot1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/shadowSphereTriangleSpot2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/shadowTrianglesSphere.png" afterDir="false" />
     </list>
     <list id="cb322a80-95a1-4bf5-badf-85de343acff9" name="Changes by wwwme" comment="">
       <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
@@ -530,7 +531,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1720094338456</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL‎-00039" summary="7.1 add shadow">
+      <option name="closed" value="true" />
+      <created>1720453664537</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL‎-00039" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1720453664537</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -546,7 +555,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added test classes and some tests in vector" />
     <MESSAGE value="finished vectorTest and in the middle of pointTest" />
     <MESSAGE value="finished tubeTest (need to check if its ok)" />
     <MESSAGE value="finished stage 2 witout self check" />
@@ -571,6 +579,7 @@
     <MESSAGE value="stage 6 middle" />
     <MESSAGE value="stage 6 without documentation" />
     <MESSAGE value="finished stage 6!" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished stage 6!" />
+    <MESSAGE value="7.1 add shadow" />
+    <option name="LAST_COMMIT_MESSAGE" value="7.1 add shadow" />
   </component>
 </project>
