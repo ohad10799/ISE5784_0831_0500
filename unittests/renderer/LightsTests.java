@@ -69,8 +69,8 @@ public class LightsTests {
      * Material for some of the geometries in the tests
      */
     private final Material material = new Material()
-            .setKd(KD3)
-            .setKs(KS3)
+            .setkD(KD3)
+            .setkS(KS3)
             .setShininess(SHININESS);
     /**
      * Light color for tests with triangles
@@ -125,7 +125,7 @@ public class LightsTests {
     private final Geometry sphere = new Sphere(SPHERE_RADIUS, sphereCenter)
             .setEmission(sphereColor)
             .setMaterial(new Material()
-                    .setKd(KD).setKs(KS)
+                    .setkD(KD).setkS(KS)
                     .setShininess(SHININESS));
     /**
      * The first triangle in appropriate tests

@@ -6,18 +6,21 @@ package primitives;
  * specular reflection coefficient (ks), and shininess.
  */
 public class Material {
-    public Double3 kd = Double3.ZERO; // The diffuse reflection coefficient
-    public Double3 ks = Double3.ZERO; // The specular reflection coefficient
+    public Double3 kD = Double3.ZERO; // The diffuse reflection coefficient
+    public Double3 kS = Double3.ZERO; // The specular reflection coefficient
+    public Double3 kT  = Double3.ZERO;
+    public Double3 kR = Double3.ZERO;
+
     public int shininess = 1; // The shininess of the material
 
     /**
      * Sets the diffuse reflection coefficient of the material.
      *
-     * @param kd the diffuse reflection coefficient
+     * @param kD the diffuse reflection coefficient
      * @return the Material object with the updated diffuse reflection coefficient
      */
-    public Material setKd(Double3 kd) {
-        this.kd = kd;
+    public Material setkD(Double3 kD) {
+        this.kD = kD;
         return this;
     }
 
@@ -27,19 +30,19 @@ public class Material {
      * @param kd the scalar value for the diffuse reflection coefficient
      * @return the Material object with the updated diffuse reflection coefficient
      */
-    public Material setKd(double kd) {
-        this.kd = new Double3(kd);
+    public Material setkD(double kd) {
+        this.kD = new Double3(kd);
         return this;
     }
 
     /**
      * Sets the specular reflection coefficient of the material.
      *
-     * @param ks the specular reflection coefficient
+     * @param kS the specular reflection coefficient
      * @return the Material object with the updated specular reflection coefficient
      */
-    public Material setKs(Double3 ks) {
-        this.ks = ks;
+    public Material setkS(Double3 kS) {
+        this.kS = kS;
         return this;
     }
 
@@ -49,8 +52,28 @@ public class Material {
      * @param ks the scalar value for the specular reflection coefficient
      * @return the Material object with the updated specular reflection coefficient
      */
-    public Material setKs(double ks) {
-        this.ks = new Double3(ks);
+    public Material setkS(double ks) {
+        this.kS = new Double3(ks);
+        return this;
+    }
+
+    public Material setkT(Double3 kT) {
+        this.kT = kT;
+        return this;
+    }
+
+    public Material setkT(double kT) {
+        this.kT = new Double3(kT);
+        return this;
+    }
+
+    public Material setkR(Double3 kR) {
+        this.kR = kR;
+        return this;
+    }
+
+    public Material setkR(double kR) {
+        this.kR = new Double3(kR);
         return this;
     }
 

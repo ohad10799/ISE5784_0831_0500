@@ -22,6 +22,12 @@ public class Ray {
     final Vector direction;
 
     /**
+     * Small constant used for offsetting rays slightly from intersection points to prevent self-shadowing artifacts.
+     * Adjusting this value can affect the smoothness of shadows and specular highlights in the rendered scene.
+     */
+    private static final double DELTA = 0.1;
+
+    /**
      * Constructs a new Ray with the specified head and direction.
      *
      * @param head      The starting point of the ray.
@@ -29,6 +35,18 @@ public class Ray {
      */
     public Ray(Point head, Vector direction) {
         this.head = head;
+        this.direction = direction.normalize();
+    }
+
+    public Ray(Point head, Vector direction, Vector normal) {
+
+        if (isZero(normal.dotProduct(direction)))
+            this.head = head.add(normal.scale(DELTA));
+        else if (normal.dotProduct(direction) > 0)
+            this.head = head.add(normal.scale(DELTA));
+        else
+            this.head = head.add(normal.scale(-DELTA));
+
         this.direction = direction.normalize();
     }
 
