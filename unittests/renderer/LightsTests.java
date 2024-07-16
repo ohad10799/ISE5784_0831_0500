@@ -64,7 +64,8 @@ public class LightsTests {
             .setRayTracer(new SimpleRayTracer(scene2))
             .setLocation(new Point(0, 0, 1000))
             .setDirection(Vector.Z, Vector.Y)
-            .setVpSize(200, 200).setVpDistance(1000);
+            .setVpSize(200, 200)
+            .setVpDistance(1000);
     /**
      * Material for some of the geometries in the tests
      */

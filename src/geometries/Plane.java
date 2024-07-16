@@ -65,7 +65,7 @@ public class Plane extends Geometry {
         double nv = normal.dotProduct(ray.getDirection());
 
         // Check if the ray is parallel to the plane or lies on the plane
-        if (isZero(nv) || q == ray.getHead()) {
+        if (isZero(nv) || q.equals(ray.getHead())) {
             return null;
         }
 

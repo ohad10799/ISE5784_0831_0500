@@ -32,9 +32,9 @@ public class PointLight extends Light implements LightSource {
     }
 
     @Override
-    public Vector getL(Point p) {
+    public Vector getL(Point targetPoint) {
         try {
-            return p.subtract(position).normalize();
+            return targetPoint.subtract(position).normalize();
         } catch (IllegalArgumentException zeroVectorException) {
             return null;
         }
