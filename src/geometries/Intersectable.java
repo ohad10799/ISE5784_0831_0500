@@ -56,10 +56,19 @@ public abstract class Intersectable {
      */
     protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance);
 
+    /**
+     * Inner class representing a geometric intersection point with its corresponding geometry.
+     */
     public static class GeoPoint {
-        public final Geometry geometry;
-        public final Point point;
+        public final Geometry geometry; // The geometry that this point intersects
+        public final Point point; // The actual intersection point
 
+        /**
+         * Constructor for GeoPoint.
+         *
+         * @param geometry The geometry that the point belongs to.
+         * @param point    The intersection point.
+         */
         public GeoPoint(Geometry geometry, Point point) {
             this.geometry = geometry;
             this.point = point;

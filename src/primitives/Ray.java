@@ -38,6 +38,14 @@ public class Ray {
         this.direction = direction.normalize();
     }
 
+    /**
+     * Constructs a new Ray with the specified head, direction, and normal.
+     * The head is adjusted slightly based on the normal to avoid self-shadowing.
+     *
+     * @param head      The starting point of the ray.
+     * @param direction The direction of the ray.
+     * @param normal    The normal vector at the intersection point.
+     */
     public Ray(Point head, Vector direction, Vector normal) {
 
         if (isZero(normal.dotProduct(direction)))

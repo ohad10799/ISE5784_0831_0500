@@ -16,15 +16,15 @@ import static primitives.Util.isZero;
  */
 public class Camera implements Cloneable {
 
-    private Point location;
-    private Vector vTo;
-    private Vector vUp;
-    private Vector vRight;
-    private double distance = 0;
-    private double width = 0;
-    private double height = 0;
-    private SimpleRayTracer rayTracer;
-    private ImageWriter imageWriter;
+    private Point location;  // The position of the camera in 3D space
+    private Vector vTo;      // The forward direction vector
+    private Vector vUp;      // The upward direction vector
+    private Vector vRight;   // The rightward direction vector, perpendicular to vTo and vUp
+    private double distance = 0;  // The distance from the camera to the view plane
+    private double width = 0;      // The width of the view plane
+    private double height = 0;     // The height of the view plane
+    private SimpleRayTracer rayTracer; // Ray tracer to render the scene
+    private ImageWriter imageWriter;   // Image writer for saving the rendered image
 
     private Camera() {
     }
