@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="stage 7 without make picture">
-      <change afterPath="$PROJECT_DIR$/images/custom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unittests/renderer/myPictures.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/pyramidOfSpheres3D.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unittests/renderer/myPictures.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/renderer/myPictures.java" afterDir="false" />
     </list>
     <list id="cb322a80-95a1-4bf5-badf-85de343acff9" name="Changes by wwwme" comment="">
       <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
@@ -103,6 +103,9 @@
     "JUnit.integrationsTest.executor": "Run",
     "JUnit.myPictures.customScene.executor": "Run",
     "JUnit.myPictures.executor": "Run",
+    "JUnit.myPictures.render3DPyramidOfSpheres.executor": "Run",
+    "JUnit.myPictures.renderPyramidOfSpheres.executor": "Run",
+    "JUnit.myPictures.renderTwoColorTest2.executor": "Run",
     "JUnit.renderer in ISE5784_0831_0500.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -139,41 +142,11 @@
       <recent name="geometries" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in ISE5784_0831_0500 (1)">
+  <component name="RunManager" selected="JUnit.myPictures.render3DPyramidOfSpheres">
     <configuration name="All in ISE5784_0831_0500 (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5784_0831_0500" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReflectionRefractionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5784_0831_0500" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="renderer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.ReflectionRefractionTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TeapotTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5784_0831_0500" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="renderer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.TeapotTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -193,7 +166,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="myPictures.customScene" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="myPictures.render3DPyramidOfSpheres" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5784_0831_0500" />
       <extension name="coverage">
         <pattern>
@@ -203,7 +176,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="renderer" />
       <option name="MAIN_CLASS_NAME" value="renderer.myPictures" />
-      <option name="METHOD_NAME" value="customScene" />
+      <option name="METHOD_NAME" value="render3DPyramidOfSpheres" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="myPictures.renderPyramidOfSpheres" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5784_0831_0500" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.myPictures" />
+      <option name="METHOD_NAME" value="renderPyramidOfSpheres" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="myPictures.renderTwoColorTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5784_0831_0500" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.myPictures" />
+      <option name="METHOD_NAME" value="renderTwoColorTest2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -211,11 +216,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in ISE5784_0831_0500 (1)" />
+        <item itemvalue="JUnit.myPictures.render3DPyramidOfSpheres" />
         <item itemvalue="JUnit.myPictures" />
-        <item itemvalue="JUnit.ReflectionRefractionTests" />
-        <item itemvalue="JUnit.TeapotTest" />
-        <item itemvalue="JUnit.myPictures.customScene" />
+        <item itemvalue="JUnit.myPictures.renderPyramidOfSpheres" />
+        <item itemvalue="JUnit.myPictures.renderTwoColorTest2" />
+        <item itemvalue="JUnit.All in ISE5784_0831_0500 (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -588,7 +593,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1721150296557</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL‎-00046" summary="stage 7 without make picture">
+      <option name="closed" value="true" />
+      <created>1721384386687</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL‎-00046" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1721384386687</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
