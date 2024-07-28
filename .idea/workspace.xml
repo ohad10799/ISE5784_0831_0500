@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="stage 7 without make picture">
-      <change afterPath="$PROJECT_DIR$/images/pyramidOfSpheres3D.png" afterDir="false" />
+    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="stage 7 with making simple picture">
+      <change afterPath="$PROJECT_DIR$/images/pyramidOfSpheres3D_SideView.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/pyramidOfSpheres3D.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/renderer/myPictures.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/renderer/myPictures.java" afterDir="false" />
     </list>
     <list id="cb322a80-95a1-4bf5-badf-85de343acff9" name="Changes by wwwme" comment="">
@@ -601,7 +602,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1721384386687</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL‎-00047" summary="stage 7 with making simple picture">
+      <option name="closed" value="true" />
+      <created>1721567820526</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL‎-00047" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1721567820526</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -617,7 +626,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="finished stage 2, need to check if all is good" />
     <MESSAGE value="finished stage 2!" />
     <MESSAGE value="statrted stage 3!" />
     <MESSAGE value="stage 3 for plane triangle and sphere" />
@@ -642,6 +650,7 @@
     <MESSAGE value="7.2" />
     <MESSAGE value="stage 7 without javadoc and make picture" />
     <MESSAGE value="stage 7 without make picture" />
-    <option name="LAST_COMMIT_MESSAGE" value="stage 7 without make picture" />
+    <MESSAGE value="stage 7 with making simple picture" />
+    <option name="LAST_COMMIT_MESSAGE" value="stage 7 with making simple picture" />
   </component>
 </project>
