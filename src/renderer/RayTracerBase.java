@@ -43,4 +43,13 @@ public abstract class RayTracerBase {
     public Color traceRay(Ray ray) {
         return Color.BLACK;
     }
+
+    /**
+     * Returns the scene associated with this ray tracer.
+     *
+     * @return the scene associated with this ray tracer
+     */
+    public Scene getScene() {
+        return scene;
+    }
 }

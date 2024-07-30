@@ -27,8 +27,8 @@ public class myPictures {
         double radius = 15d;
         double spacing = 2 * radius ;
         double heightStep = 25;
-        double angle = Math.toRadians(15); // Convert 15 degrees to radians
 
+        // ***** SHAPES *****
 
         // Add a large plane as the ground
         scene.geometries.add(
@@ -193,19 +193,49 @@ public class myPictures {
                         .setKl(4E-4).setKq(2E-5));
 
 
-        double distance = 400; // Distance from the origin
-        double x = distance * Math.cos(angle);
-        double y = distance * Math.sin(angle);
+        // ***** CAMERA *****
 
-        // Set up the camera and render the image
-        cameraBuilder.setLocation(new Point(x, y, 100))
-                .setDirection(new Vector(-Math.cos(angle), -Math.sin(angle), 0), new Vector(0, 0, 1))
+        // Define camera parameters
+        double distance = 400; // Distance from the origin
+        Point baseLocation = new Point(0, -distance, 100);
+        Vector baseDirection = new Vector(0, 1, 0);
+        Vector baseUp = new Vector(0, 0, 1);
+
+        // Create the camera with depth of field
+        Camera camera1 = Camera.getBuilder()
+                .setLocation(baseLocation)
+                .setDirection(baseDirection, baseUp)
                 .setVpSize(300, 300)
-                .setImageWriter(new ImageWriter("pyramidOfSpheres3D_SideView", 800, 800))
-                .setVpDistance(400)
-                .build()
-                .renderImage()
-                .writeToImage();
+                .setVpDistance(distance)
+                .setUseDepthOfField(true)
+                .setFocalLength(400)
+                .setApertureSize(10)
+                .setRayTracer(new SimpleRayTracer(scene))
+                .setImageWriter(new ImageWriter("pyramidOfSpheres_DoF", 800, 800))
+                .build();
+
+        // Apply rotation to the camera
+        camera1.rotateAroundZAxis(15);
+
+        // Render the image
+        camera1.renderImage().writeToImage();
+
+        // Create the camera without depth of field
+        Camera camera2 = Camera.getBuilder()
+                .setLocation(baseLocation)
+                .setDirection(baseDirection, baseUp)
+                .setVpSize(300, 300)
+                .setVpDistance(distance)
+                .setUseDepthOfField(false)
+                .setRayTracer(new SimpleRayTracer(scene))
+                .setImageWriter(new ImageWriter("pyramidOfSpheres_No_DoF", 800, 800))
+                .build();
+
+        // Apply rotation to the camera
+        camera2.rotateAroundZAxis(15);
+
+        // Render the image
+        camera2.renderImage().writeToImage();
     }
 
 }

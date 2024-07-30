@@ -1,10 +1,6 @@
 package renderer;
 
-import primitives.Color;
-import primitives.Point;
-import primitives.Ray;
-import primitives.Vector;
-
+import primitives.*;
 import java.util.MissingResourceException;
 
 import static primitives.Util.alignZero;
@@ -25,6 +21,11 @@ public class Camera implements Cloneable {
     private double height = 0;     // The height of the view plane
     private SimpleRayTracer rayTracer; // Ray tracer to render the scene
     private ImageWriter imageWriter;   // Image writer for saving the rendered image
+
+    // new parameters for DoF
+    private boolean useDepthOfField = false; // Indicates if depth of field effects are enabled.
+    private double focalLength = 1000; // The focal length for depth of field effects.
+    private double apertureSize = 1; // The size of the aperture for depth of field effects.
 
     private Camera() {
     }
@@ -166,7 +167,8 @@ public class Camera implements Cloneable {
     }
 
     /**
-     * Casts a ray through a specific pixel in the view plane and writes the color to the image.
+     * Casts a ray through a specified pixel and writes the resulting color to the image.
+     * If depth of field (DoF) effects are enabled, multiple rays are cast per pixel to average the colors for a realistic blur effect.
      *
      * @param Nx     Number of horizontal pixels in the view plane.
      * @param Ny     Number of vertical pixels in the view plane.
@@ -174,9 +176,47 @@ public class Camera implements Cloneable {
      * @param row    Row index of the pixel.
      */
     private void castRay(int Nx, int Ny, int column, int row) {
-        Ray ray = constructRay(Nx, Ny, column, row);
-        Color color = rayTracer.traceRay(ray);
-        imageWriter.writePixel(column, row, color);
+        if (!useDepthOfField) {
+            Ray ray = constructRay(Nx, Ny, column, row);
+            Color color = rayTracer.traceRay(ray);
+            imageWriter.writePixel(column, row, color);
+            return;
+        }
+
+        // If using DoF, average the colors of multiple rays
+        int numRays = 10;  // Number of rays to cast per pixel for DoF
+        Color averageColor = Color.BLACK;
+        for (int i = 0; i < numRays; i++) {
+            Ray ray = constructRayDoF(Nx, Ny, column, row);
+            Color color = rayTracer.traceRay(ray);
+            averageColor = averageColor.add(color);
+        }
+        averageColor = averageColor.reduce(numRays);
+        imageWriter.writePixel(column, row, averageColor);
+    }
+
+    /**
+     * Constructs a ray with depth of field (DoF) effects through a specified pixel.
+     * If DoF is enabled, the ray is offset based on a random point within the aperture to simulate a blurred focus effect.
+     *
+     * @param nX Number of horizontal pixels in the view plane.
+     * @param nY Number of vertical pixels in the view plane.
+     * @param j  Column index of the pixel.
+     * @param i  Row index of the pixel.
+     * @return The constructed ray with DoF effects, or a primary ray if DoF is disabled.
+     */
+    private Ray constructRayDoF(int nX, int nY, int j, int i) {
+        Ray primaryRay = constructRay(nX, nY, j, i);
+        if (!useDepthOfField) {
+            return primaryRay;
+        }
+        Point focalPoint = primaryRay.getPoint(focalLength);
+        double r = Math.sqrt(Math.random()) * apertureSize / 2;
+        double theta = Math.random() * 2 * Math.PI;
+        double xShift = r * Math.cos(theta);
+        double yShift = r * Math.sin(theta);
+        Point aperturePoint = location.add(vRight.scale(xShift)).add(vUp.scale(yShift));
+        return new Ray(aperturePoint, focalPoint.subtract(aperturePoint));
     }
 
     /**
@@ -190,6 +230,27 @@ public class Camera implements Cloneable {
         }
         imageWriter.writeToImage();
     }
+
+    /**
+     * Rotates the camera around the Z-axis by the specified angle.
+     * This method updates the camera's location and orientation vectors based on the rotation angle.
+     *
+     * @param angle The angle of rotation around the Z-axis, in degrees. Positive values indicate counterclockwise rotation.
+     * @return The updated Camera instance with the new location and orientation.
+     */
+    public Camera rotateAroundZAxis(double angle) {
+        double radAngle = Math.toRadians(angle);
+        double x = Math.cos(radAngle) * distance;
+        double y = Math.sin(radAngle) * distance;
+
+        this.location = new Point(x, y, 100);
+        this.vTo = new Vector(-x, -y, 0).normalize();
+        this.vUp = new Vector(0, 0, 1);
+        this.vRight = vTo.crossProduct(vUp).normalize();
+
+        return this;
+    }
+
 
     /**
      * Builder class for constructing a Camera instance.
@@ -246,6 +307,39 @@ public class Camera implements Cloneable {
          */
         public Builder setVpDistance(double distance) {
             camera.distance = distance;
+            return this;
+        }
+
+        /**
+         * Sets whether to use depth of field (DoF) effects.
+         *
+         * @param useDepthOfField True to enable DoF, false to disable.
+         * @return The builder instance.
+         */
+        public Builder setUseDepthOfField(boolean useDepthOfField) {
+            camera.useDepthOfField = useDepthOfField;
+            return this;
+        }
+
+        /**
+         * Sets the focal length for depth of field (DoF) effects.
+         *
+         * @param focalLength The focal length to set.
+         * @return The builder instance.
+         */
+        public Builder setFocalLength(double focalLength) {
+            camera.focalLength = focalLength;
+            return this;
+        }
+
+        /**
+         * Sets the aperture size for depth of field (DoF) effects.
+         *
+         * @param apertureSize The aperture size to set.
+         * @return The builder instance.
+         */
+        public Builder setApertureSize(double apertureSize) {
+            camera.apertureSize = apertureSize;
             return this;
         }
 
@@ -319,7 +413,5 @@ public class Camera implements Cloneable {
             camera.imageWriter = imageWriter;
             return this;
         }
-
     }
-
 }
