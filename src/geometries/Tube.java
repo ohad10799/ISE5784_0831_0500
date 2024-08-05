@@ -3,6 +3,7 @@ package geometries;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
+import renderer.BoundingBox;
 
 import java.util.List;
 
@@ -54,4 +55,7 @@ public class Tube extends RadialGeometry {
     protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance) {
         return null;
     }
+
+    @Override
+    public BoundingBox getBoundingBox(){return null;}
 }

@@ -3,6 +3,7 @@ package geometries;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
+import renderer.BoundingBox;
 
 import java.util.List;
 
@@ -64,5 +65,12 @@ public class Sphere extends RadialGeometry {
         }
         // If no valid intersections found, return null
         return null;
+    }
+
+    @Override
+    public BoundingBox getBoundingBox() {
+        Point min = new Point(center.getX() - radius, center.getY() - radius, center.getZ() - radius);
+        Point max = new Point(center.getX() + radius, center.getY() + radius, center.getZ() + radius);
+        return new BoundingBox(min, max);
     }
 }

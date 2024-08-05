@@ -33,10 +33,13 @@ public class SimpleRayTracer extends RayTracerBase {
 
     @Override
     public Color traceRay(Ray ray) {
+        if (bvhAccelerator != null) {
+            if (bvhAccelerator.findClosestIntersection(ray) != null) {
+                return scene.background;
+            }
+        }
         GeoPoint closestPoint = findClosestIntersection(ray);
-
-        return closestPoint == null ? scene.background
-                : calcColor(closestPoint, ray);
+        return closestPoint == null ? scene.background : calcColor(closestPoint, ray);
     }
 
     /**
@@ -253,6 +256,9 @@ public class SimpleRayTracer extends RayTracerBase {
      * @return The closest intersection point, or null if no intersection exists.
      */
     private GeoPoint findClosestIntersection(Ray ray) {
+        if (bvhAccelerator != null) {
+            return bvhAccelerator.findClosestIntersection(ray);
+        }
         List<GeoPoint> intersections = scene.geometries.findGeoIntersections(ray);
         if (intersections == null) {
             return null;
@@ -292,7 +298,6 @@ public class SimpleRayTracer extends RayTracerBase {
         }
         return ktr;
     }
-
 
 
 }

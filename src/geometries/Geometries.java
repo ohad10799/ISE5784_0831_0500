@@ -2,6 +2,7 @@ package geometries;
 
 import primitives.Ray;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -59,5 +60,13 @@ public class Geometries extends Intersectable {
         }
         // Return the list of intersection points found (may be null if no intersections exist)
         return result;
+    }
+
+    /**
+     * Returns a list of all geometries in this collection.
+     * @return List of Intersectable objects
+     */
+    public List<Intersectable> getGeometries() {
+        return new ArrayList<>(geometries);
     }
 }

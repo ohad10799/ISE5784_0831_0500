@@ -3,6 +3,7 @@ package geometries;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
+import renderer.BoundingBox;
 
 import java.util.List;
 
@@ -79,5 +80,15 @@ public class Plane extends Geometry {
 
         // If the intersection point lies behind the ray's head (t ≤ 0), return null
         return null;
+    }
+
+    @Override
+    public BoundingBox getBoundingBox() {
+        // Infinite bounding box for the plane
+        // Assuming we define a large bounding box around the plane
+        double range = 1000; // Adjust this range as necessary
+        Point min = new Point(-range, -range, q.getZ() - range);
+        Point max = new Point(range, range, q.getZ() + range);
+        return new BoundingBox(min, max);
     }
 }

@@ -89,4 +89,29 @@ public class Point {
         return Math.sqrt(distanceSquared(p1));
     }
 
+    public double getX() {
+        return xyz.d1;
+    }
+
+    public double getY() {
+        return xyz.d2;
+    }
+
+    public double getZ() {
+        return xyz.d3;
+    }
+
+    public double get(int axis) {
+        switch (axis) {
+            case 0:
+                return getX();
+            case 1:
+                return getY();
+            case 2:
+                return getZ();
+            default:
+                throw new IllegalArgumentException("Invalid axis index");
+        }
+
+    }
 }
