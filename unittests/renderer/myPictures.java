@@ -18,6 +18,10 @@ public class myPictures {
     // Scene to render
     private final Scene scene = new Scene("Test scene");
 
+    // Camera builder for the tests with triangles
+    private final Camera.Builder cameraBuilder = Camera.getBuilder()
+            .setRayTracer(new SimpleRayTracer(scene));
+
     @Test
     public void render3DPyramidOfSpheres() {
         double radius = 15d;
@@ -204,7 +208,7 @@ public class myPictures {
                 .setVpSize(300, 300)
                 .setVpDistance(distance)
                 .setUseDepthOfField(true)
-                .setFocalLength(500)
+                .setFocalLength(400)
                 .setApertureSize(10)
                 .setRayTracer(new SimpleRayTracer(scene))
                 .setImageWriter(new ImageWriter("pyramidOfSpheres_DoF", 800, 800))

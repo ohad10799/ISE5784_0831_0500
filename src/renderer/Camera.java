@@ -1,18 +1,8 @@
 package renderer;
 
-import geometries.Geometries;
-import geometries.Geometry;
-import geometries.Intersectable;
 import primitives.*;
-
-import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.MissingResourceException;
-import java.util.stream.IntStream;
-import primitives.Color;
-import scene.Scene;
+
 import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
@@ -36,21 +26,6 @@ public class Camera implements Cloneable {
     private boolean useDepthOfField = false; // Indicates if depth of field effects are enabled.
     private double focalLength = 1000; // The focal length for depth of field effects.
     private double apertureSize = 1; // The size of the aperture for depth of field effects.
-
-    // new parameters for multi-threading and BVH
-    private int threadsCount = 0;
-    private long printInterval = 0;
-    private BVHAccelerator bvh;
-    private boolean useBVH = false;
-    private final int SPARE_THREADS = 2; // Spare threads if trying to use all the cores
-
-    /** Pixel manager for supporting:
-     * <ul>
-     * <li>multi-threading</li>
-     * <li>debug print of progress percentage in Console window/tab</li>
-     * <ul>
-     */
-    private PixelManager pixelManager;
 
     private Camera() {
     }
@@ -127,7 +102,7 @@ public class Camera implements Cloneable {
         double rX = width / nX;
 
         double yi = alignZero(-(i - (nY - 1) / 2d) * rY);
-        double xj = alignZero( (j - (nX - 1) / 2d) * rX);
+        double xj =alignZero( (j - (nX - 1) / 2d) * rX);
 
         Point pIJ = pC;
 
@@ -183,35 +158,28 @@ public class Camera implements Cloneable {
         }
         int nX = imageWriter.getNx();
         int nY = imageWriter.getNy();
-        pixelManager = new PixelManager(nY, nX, printInterval);
-
-        if (threadsCount == 0) {
-            for (int i = 0; i < nY; ++i)
-                for (int j = 0; j < nX; ++j)
-                    castRay(nX, nY, j, i);
-        }
-        else {
-            IntStream.range(0, nY).parallel() //
-                    .forEach(i -> IntStream.range(0, nX).parallel() //
-                            .forEach(j -> castRay(nX, nY, j, i)));
+        for (int i = 0; i < nY; ++i) {
+            for (int j = 0; j < nX; ++j) {
+                castRay(nX, nY, j, i);
+            }
         }
         return this;
     }
-
 
     /**
      * Casts a ray through a specified pixel and writes the resulting color to the image.
      * If depth of field (DoF) effects are enabled, multiple rays are cast per pixel to average the colors for a realistic blur effect.
      *
-     * @param nX     Number of horizontal pixels in the view plane.
-     * @param nY     Number of vertical pixels in the view plane.
-     * @param col Column index of the pixel.
+     * @param Nx     Number of horizontal pixels in the view plane.
+     * @param Ny     Number of vertical pixels in the view plane.
+     * @param column Column index of the pixel.
      * @param row    Row index of the pixel.
      */
-    private void castRay(int nX, int nY, int col, int row) {
+    private void castRay(int Nx, int Ny, int column, int row) {
         if (!useDepthOfField) {
-            imageWriter.writePixel(col, row, rayTracer.traceRay(constructRay(nX, nY, col, row)));
-            pixelManager.pixelDone();
+            Ray ray = constructRay(Nx, Ny, column, row);
+            Color color = rayTracer.traceRay(ray);
+            imageWriter.writePixel(column, row, color);
             return;
         }
 
@@ -219,41 +187,12 @@ public class Camera implements Cloneable {
         int numRays = 10;  // Number of rays to cast per pixel for DoF
         Color averageColor = Color.BLACK;
         for (int i = 0; i < numRays; i++) {
-            Ray ray = constructRayDoF(nX, nY, col, row);
+            Ray ray = constructRayDoF(Nx, Ny, column, row);
             Color color = rayTracer.traceRay(ray);
             averageColor = averageColor.add(color);
         }
         averageColor = averageColor.reduce(numRays);
-        imageWriter.writePixel(col, row, averageColor);
-        pixelManager.pixelDone();
-    }
-
-    private void initializeBVH() {
-        if (!useBVH) {
-            return;
-        }
-        if (rayTracer == null) {
-            throw new IllegalStateException("RayTracer must be set before initializing BVH");
-        }
-        Scene scene = rayTracer.getScene();
-        if (scene == null) {
-            throw new IllegalStateException("Scene must be set in the RayTracer before initializing BVH");
-        }
-        Geometries sceneGeometries = scene.geometries;
-        if (sceneGeometries == null) {
-            throw new IllegalStateException("Scene must have geometries before initializing BVH");
-        }
-        List<Intersectable> geometriesList = sceneGeometries.getGeometries();
-        List<Geometry> geometries = new ArrayList<>();
-        for (Intersectable intersectable : geometriesList) {
-            if (intersectable instanceof Geometry) {
-                geometries.add((Geometry) intersectable);
-            }
-        }
-        bvh = new BVHAccelerator(geometries);
-        if (rayTracer instanceof SimpleRayTracer) {
-            (rayTracer).setBVHAccelerator(bvh);
-        }
+        imageWriter.writePixel(column, row, averageColor);
     }
 
     /**
@@ -401,31 +340,6 @@ public class Camera implements Cloneable {
          */
         public Builder setApertureSize(double apertureSize) {
             camera.apertureSize = apertureSize;
-            return this;
-        }
-
-        // Set multi-threading
-        public Builder setMultithreading(int threads) {
-            if (threads < -2) throw new IllegalArgumentException("Multithreading must be -2 or higher");
-            if (threads >= -1) camera.threadsCount = threads;
-            else {
-                int cores = Runtime.getRuntime().availableProcessors() - 2;
-                camera.threadsCount = cores <= 2 ? 1 : cores;
-            }
-            return this;
-        }
-
-        // Set debug print interval
-        public Builder setDebugPrint(double interval) {
-            camera.printInterval = (long) (interval * 1000);
-            return this;
-        }
-
-        public Builder setBVH(boolean useBVH) {
-            camera.useBVH = useBVH;
-            if (useBVH) {
-                camera.initializeBVH();
-            }
             return this;
         }
 

@@ -3,7 +3,6 @@ package geometries;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
-import renderer.BoundingBox;
 
 import java.util.List;
 
@@ -98,32 +97,5 @@ public class Polygon extends Geometry {
     protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance) {
         // we don't want any education...
         return null;
-    }
-
-    @Override
-    public BoundingBox getBoundingBox() {
-        if (vertices == null || vertices.isEmpty()) {
-            throw new IllegalStateException("Polygon has no vertices.");
-        }
-
-        double minX = vertices.get(0).getX();
-        double minY = vertices.get(0).getY();
-        double minZ = vertices.get(0).getZ();
-        double maxX = vertices.get(0).getX();
-        double maxY = vertices.get(0).getY();
-        double maxZ = vertices.get(0).getZ();
-
-        for (Point vertex : vertices) {
-            minX = Math.min(minX, vertex.getX());
-            minY = Math.min(minY, vertex.getY());
-            minZ = Math.min(minZ, vertex.getZ());
-            maxX = Math.max(maxX, vertex.getX());
-            maxY = Math.max(maxY, vertex.getY());
-            maxZ = Math.max(maxZ, vertex.getZ());
-        }
-
-        Point min = new Point(minX, minY, minZ);
-        Point max = new Point(maxX, maxY, maxZ);
-        return new BoundingBox(min, max);
     }
 }

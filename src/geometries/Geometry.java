@@ -1,7 +1,9 @@
 package geometries;
 
-import primitives.*;
-import renderer.BoundingBox;
+import primitives.Color;
+import primitives.Material;
+import primitives.Point;
+import primitives.Vector;
 
 /**
  * Abstract class representing geometric shapes in a 3D scene.
@@ -59,11 +61,4 @@ public abstract class Geometry extends Intersectable {
         this.material = material;
         return this;
     }
-
-    /**
-     * Abstract method to get the bounding box of the geometry.
-     *
-     * @return the bounding box of the geometry
-     */
-    public abstract BoundingBox getBoundingBox();
 }

@@ -3,7 +3,6 @@ package geometries;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
-import renderer.BoundingBox;
 
 import java.util.List;
 

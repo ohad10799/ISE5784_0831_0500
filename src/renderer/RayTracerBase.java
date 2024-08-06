@@ -12,7 +12,6 @@ import scene.Scene;
 public abstract class RayTracerBase {
 
     protected final Scene scene;
-    protected BVHAccelerator bvhAccelerator;
 
     /**
      * Constructs a new RayTracerBase with the specified scene.
@@ -43,12 +42,6 @@ public abstract class RayTracerBase {
      */
     public Color traceRay(Ray ray) {
         return Color.BLACK;
-    }
-
-
-
-    public void setBVHAccelerator(BVHAccelerator bvhAccelerator) {
-        this.bvhAccelerator = bvhAccelerator;
     }
 
     /**
