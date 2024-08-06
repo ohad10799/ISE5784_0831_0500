@@ -1,5 +1,6 @@
 package geometries;
 
+import primitives.Point;
 import primitives.Ray;
 
 import java.util.Collections;
@@ -12,7 +13,7 @@ import java.util.List;
  * calculations for all contained geometries.
  */
 public class Geometries extends Intersectable {
-    final private List<Intersectable> geometries = new LinkedList<>();
+    protected List<Intersectable> geometries = new LinkedList<>();
 
     /**
      * Constructs an empty collection of geometries.
@@ -59,5 +60,20 @@ public class Geometries extends Intersectable {
         }
         // Return the list of intersection points found (may be null if no intersections exist)
         return result;
+    }
+
+    @Override
+    public List<Point> minMaxPoints() {
+        // set the objects to default values
+        Point min = Point.POSITIVE_INFINITE;
+        Point max = Point.NEGATIVE_INFINITE;
+
+        for (Intersectable obj : geometries) {
+            List<Point> objMinMax = obj.minMaxPoints();
+            min = Point.findMinimum(List.of(min, objMinMax.get(0)));
+            max = Point.findMaximum(List.of(max, objMinMax.get(1)));
+        }
+
+        return List.of(min, max);
     }
 }

@@ -80,4 +80,9 @@ public class Plane extends Geometry {
         // If the intersection point lies behind the ray's head (t ≤ 0), return null
         return null;
     }
+
+    @Override
+    public List<Point> minMaxPoints() {
+        return List.of(Point.NEGATIVE_INFINITE, Point.POSITIVE_INFINITE);
+    }
 }

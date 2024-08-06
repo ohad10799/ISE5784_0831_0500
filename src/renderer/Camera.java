@@ -2,6 +2,7 @@ package renderer;
 
 import primitives.*;
 import java.util.MissingResourceException;
+import java.util.stream.IntStream;
 
 import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
@@ -26,6 +27,12 @@ public class Camera implements Cloneable {
     private boolean useDepthOfField = false; // Indicates if depth of field effects are enabled.
     private double focalLength = 1000; // The focal length for depth of field effects.
     private double apertureSize = 1; // The size of the aperture for depth of field effects.
+
+    // new parameter for multithreading
+    private int threadsCount = 0; // -2 auto, -1 range/stream, 0 no threads, 1+ number of threads
+    private final int SPARE_THREADS = 2; // Spare threads if trying to use all the cores
+    private double printInterval = 0; // printing progress percentage interval
+    private PixelManager pixelManager; // pixel manager for multithreading
 
     private Camera() {
     }
@@ -158,10 +165,18 @@ public class Camera implements Cloneable {
         }
         int nX = imageWriter.getNx();
         int nY = imageWriter.getNy();
-        for (int i = 0; i < nY; ++i) {
-            for (int j = 0; j < nX; ++j) {
-                castRay(nX, nY, j, i);
+        pixelManager = new PixelManager(nY, nX, printInterval);
+        if(threadsCount == 0) {
+            for (int i = 0; i < nY; ++i) {
+                for (int j = 0; j < nX; ++j) {
+                    castRay(nX, nY, j, i);
+                }
             }
+        }
+        else {
+            IntStream.range(0, nY).parallel()
+                    .forEach(i -> IntStream.range(0, nX).parallel() // for each row:
+                            .forEach(j -> castRay(nX, nY, j, i))); // for each column in row
         }
         return this;
     }
@@ -177,9 +192,8 @@ public class Camera implements Cloneable {
      */
     private void castRay(int Nx, int Ny, int column, int row) {
         if (!useDepthOfField) {
-            Ray ray = constructRay(Nx, Ny, column, row);
-            Color color = rayTracer.traceRay(ray);
-            imageWriter.writePixel(column, row, color);
+            imageWriter.writePixel(column, row, rayTracer.traceRay(constructRay(imageWriter.getNx(), imageWriter.getNy(), column, row)));
+            pixelManager.pixelDone();
             return;
         }
 
@@ -193,6 +207,7 @@ public class Camera implements Cloneable {
         }
         averageColor = averageColor.reduce(numRays);
         imageWriter.writePixel(column, row, averageColor);
+        pixelManager.pixelDone();
     }
 
     /**
@@ -236,9 +251,8 @@ public class Camera implements Cloneable {
      * This method updates the camera's location and orientation vectors based on the rotation angle.
      *
      * @param angle The angle of rotation around the Z-axis, in degrees. Positive values indicate counterclockwise rotation.
-     * @return The updated Camera instance with the new location and orientation.
      */
-    public Camera rotateAroundZAxis(double angle) {
+    public void rotateAroundZAxis(double angle) {
         double radAngle = Math.toRadians(angle);
         double x = Math.cos(radAngle) * distance;
         double y = Math.sin(radAngle) * distance;
@@ -247,8 +261,6 @@ public class Camera implements Cloneable {
         this.vTo = new Vector(-x, -y, 0).normalize();
         this.vUp = new Vector(0, 0, 1);
         this.vRight = vTo.crossProduct(vUp).normalize();
-
-        return this;
     }
 
 
@@ -340,6 +352,22 @@ public class Camera implements Cloneable {
          */
         public Builder setApertureSize(double apertureSize) {
             camera.apertureSize = apertureSize;
+            return this;
+        }
+
+        public Builder setMultithreading(int thread)
+        {
+            if(thread < -2) throw new IllegalArgumentException("Multithreading must be -2 or higher");
+            if(thread >=-1) camera.threadsCount = thread;
+            else{ // -2
+                int cores = Runtime.getRuntime().availableProcessors() - camera.SPARE_THREADS;
+                camera.threadsCount = cores <= 2 ? 1 : cores;
+            }
+            return this;
+        }
+
+        public Builder setDebugPrint(double printInterval) {
+            camera.printInterval = printInterval;
             return this;
         }
 

@@ -1,5 +1,7 @@
 package primitives;
 
+import java.util.List;
+
 /**
  * Represents a point in 3D space.
  */
@@ -9,6 +11,8 @@ public class Point {
      */
     public static final Point ZERO = new Point(0, 0, 0); // Final static public Point ZERO;
     protected final Double3 xyz; // The coordinates of the point.
+    public static final Point POSITIVE_INFINITE = new Point(Double3.POSITIVE_INFINITE);
+    public static final Point NEGATIVE_INFINITE = new Point(Double3.NEGATIVE_INFINITE);
 
     /**
      * Constructs a new Point with the given coordinates.
@@ -67,6 +71,10 @@ public class Point {
         return new Point(xyz.add(v1.xyz));
     }
 
+    public Point add(Point p1) {
+        return new Point(xyz.add(p1.xyz));
+    }
+
     /**
      * Computes the squared distance between this point and another point.
      *
@@ -89,4 +97,45 @@ public class Point {
         return Math.sqrt(distanceSquared(p1));
     }
 
+
+    public static Point findMinimum(List<Point> points) {
+        double xMin = Double.POSITIVE_INFINITY;
+        double yMin = Double.POSITIVE_INFINITY;
+        double zMin = Double.POSITIVE_INFINITY;
+        for (Point point : points) {
+            xMin = Math.min(point.getX(), xMin);
+            yMin = Math.min(point.getY(), yMin);
+            zMin = Math.min(point.getZ(), zMin);
+        }
+
+        return new Point(xMin, yMin, zMin);
+    }
+
+    public static Point findMaximum(List<Point> points) {
+        double xMax = Double.NEGATIVE_INFINITY;
+        double yMax = Double.NEGATIVE_INFINITY;
+        double zMax = Double.NEGATIVE_INFINITY;
+        for (Point point : points) {
+            xMax = Math.max(point.getX(), xMax);
+            yMax = Math.max(point.getY(), yMax);
+            zMax = Math.max(point.getZ(), zMax);
+        }
+        return new Point(xMax, yMax, zMax);
+    }
+
+    public double getX() {
+        return xyz.d1;
+    }
+
+    public double getY() {
+        return xyz.d2;
+    }
+
+    public double getZ() {
+        return xyz.d3;
+    }
+
+    public Point scale(double v) {
+        return new Point(xyz.scale(v));
+    }
 }

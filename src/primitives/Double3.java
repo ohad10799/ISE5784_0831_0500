@@ -11,6 +11,10 @@ import static primitives.Util.isZero;
  * @author Dan Zilberstein
  */
 public class Double3 {
+
+    public static final Double3 NEGATIVE_INFINITE = new Double3(Double.NEGATIVE_INFINITY);
+    public static final Double3 POSITIVE_INFINITE = new Double3(Double.POSITIVE_INFINITY);
+
     /**
      * Zero triad (0,0,0)
      */

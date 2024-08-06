@@ -54,4 +54,9 @@ public class Tube extends RadialGeometry {
     protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance) {
         return null;
     }
+
+    @Override
+    public List<Point> minMaxPoints() {
+        return null;
+    }
 }

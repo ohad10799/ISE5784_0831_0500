@@ -98,4 +98,9 @@ public class Polygon extends Geometry {
         // we don't want any education...
         return null;
     }
+
+    @Override
+    public List<Point> minMaxPoints() {
+        return List.of(Point.findMinimum(vertices), Point.findMaximum(vertices));
+    }
 }

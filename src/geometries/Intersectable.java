@@ -56,6 +56,8 @@ public abstract class Intersectable {
      */
     protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance);
 
+    public abstract List<Point> minMaxPoints();
+
     /**
      * Inner class representing a geometric intersection point with its corresponding geometry.
      */
@@ -73,6 +75,8 @@ public abstract class Intersectable {
             this.geometry = geometry;
             this.point = point;
         }
+
+
 
         @Override
         public boolean equals(Object o) {

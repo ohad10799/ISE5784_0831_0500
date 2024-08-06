@@ -65,4 +65,10 @@ public class Sphere extends RadialGeometry {
         // If no valid intersections found, return null
         return null;
     }
+
+    @Override
+    public List<Point> minMaxPoints() {
+        return List.of(new Point(center.getX() - radius , center.getY() - radius, center.getZ() - radius), //
+                new Point(center.getX() + radius , center.getY() + radius, center.getZ() + radius));
+    }
 }
