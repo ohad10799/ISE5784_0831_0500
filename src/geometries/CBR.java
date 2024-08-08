@@ -1,15 +1,15 @@
 package geometries;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import static primitives.Util.*;
 import primitives.*;
 
 /**
- * Implements the CBR object.
- *
+ * Represents a Cuboid Bounding Region (CBR), a bounding box used to encompass a group of intersectable geometries.
+ * This class extends the {@link Geometries} class and provides functionality for creating and managing bounding boxes
+ * for intersectable objects to optimize intersection tests.
  */
 public class CBR extends Geometries {
     /** minimum coordinates point of the bound */
@@ -19,22 +19,24 @@ public class CBR extends Geometries {
     private Point max = Point.NEGATIVE_INFINITE;
 
     /**
-     * Default CBR constructor.
+     * Default constructor for CBR.
      */
     public CBR() {}
 
-    /** CBR constructor based on list of intersectables.
+    /**
+     * Constructs a CBR with the specified geometries.
      *
-     * @param geometries the list of intersectables
+     * @param geometries the geometries to be included in this CBR.
      */
     public CBR(Intersectable... geometries) {
         add(geometries);
         buildHierarchy();
     }
 
-    /** CBR constructor based on one intersectable.
+    /**
+     * Constructs a CBR from a single intersectable geometry.
      *
-     * @param geometry an intersectable object
+     * @param geometry the geometry to be included in this CBR.
      */
     public CBR(Intersectable geometry) {
         this.geometries.add(geometry);
@@ -44,28 +46,24 @@ public class CBR extends Geometries {
     }
 
     /**
-     * Getter to the value of min.
+     * Gets the minimum coordinates point of the bound.
      *
-     * @return the minimum point of the CBR
+     * @return the minimum point of the bounding box.
      */
     public Point getMin() {
         return min;
     }
 
     /**
-     * Getter to the value of max.
+     * Gets the maximum coordinates point of the bound.
      *
-     * @return the maximum point of the CBR
+     * @return the maximum point of the bounding box.
      */
     public Point getMax() {
         return max;
     }
-    /**
-     * A method to add geometries to the collection and update min and max points accordingly.
-     *
-     * @param  geometries	variable number of Intersectable objects to be added
-     * @return         	void
-     */
+
+
     @Override
     public void add(Intersectable... geometries) {
         for (Intersectable obj : geometries) {
@@ -140,23 +138,21 @@ public class CBR extends Geometries {
     }
 
     /**
-     * This method wraps the recursive helper to sort the list only once.
+     * Builds a hierarchical bounding box structure (CBR) for the contained geometries.
+     * The geometries are sorted and divided into two parts recursively to create a bounding hierarchy.
      *
-     * @return the updated CBR
+     * @return the CBR with a hierarchical structure built.
      */
     public CBR buildHierarchy() {
-        Collections.sort(this.geometries, new Comparator<Intersectable>() {
-            @Override
-            public int compare(Intersectable obj1, Intersectable obj2) {
-                List<Point> minMax1 = obj1.minMaxPoints();
-                double value1 = boundValue(minMax1.get(0), minMax1.get(1));
+        Collections.sort(this.geometries, (obj1, obj2) -> {
+            List<Point> minMax1 = obj1.minMaxPoints();
+            double value1 = boundValue(minMax1.get(0), minMax1.get(1));
 
-                List<Point> minMax2 = obj2.minMaxPoints();
-                double value2 = boundValue(minMax2.get(0), minMax2.get(1));
+            List<Point> minMax2 = obj2.minMaxPoints();
+            double value2 = boundValue(minMax2.get(0), minMax2.get(1));
 
-                if (value1 < value2) return 1;
-                return -1;
-            }
+            if (value1 < value2) return 1;
+            return -1;
         });
 
         this.geometries = List.of(buildHierarchyHelper(this.geometries));
@@ -164,10 +160,10 @@ public class CBR extends Geometries {
     }
 
     /**
-     * Recursive algorithm which builds a hierarchy tree of CBRs from a sorted list of CBRs.
+     * Recursively builds the bounding box hierarchy.
      *
-     * @param geometries the list of CBRs
-     * @return the top of the tree
+     * @param geometries the list of geometries to include in the hierarchy.
+     * @return the root CBR of the hierarchy.
      */
     private Intersectable buildHierarchyHelper(List<Intersectable> geometries) {
         if (geometries.size() < 2)

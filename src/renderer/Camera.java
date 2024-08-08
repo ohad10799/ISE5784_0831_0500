@@ -29,22 +29,30 @@ public class Camera implements Cloneable {
     private double apertureSize = 1; // The size of the aperture for depth of field effects.
 
     // new parameter for multithreading
-    private int threadsCount = 0; // -2 auto, -1 range/stream, 0 no threads, 1+ number of threads
+    private int threadsCount = 0; // -2 auto, 0 no threads, 1+ number of threads
     private final int SPARE_THREADS = 2; // Spare threads if trying to use all the cores
     private double printInterval = 0; // printing progress percentage interval
     private PixelManager pixelManager; // pixel manager for multithreading
 
+    /**
+     * Private constructor for Camera.
+     * Use the builder to create instances of Camera.
+     */
     private Camera() {
     }
 
     /**
-     * @return A new Builder instance to construct a Camera.
+     * Returns a new builder instance for constructing a Camera.
+     *
+     * @return A new Builder instance.
      */
     public static Builder getBuilder() {
         return new Builder();
     }
 
     /**
+     * Gets the location of the camera.
+     *
      * @return The location of the camera.
      */
     public Point getLocation() {
@@ -52,34 +60,44 @@ public class Camera implements Cloneable {
     }
 
     /**
-     * @return The forward direction vector (vTo).
+     * Gets the forward direction vector of the camera.
+     *
+     * @return The forward direction vector.
      */
     public Vector getvTo() {
         return vTo;
     }
 
     /**
-     * @return The upward direction vector (vUp).
+     * Gets the upward direction vector of the camera.
+     *
+     * @return The upward direction vector.
      */
     public Vector getvUp() {
         return vUp;
     }
 
     /**
-     * @return The rightward direction vector (vRight).
+     * Gets the rightward direction vector of the camera.
+     *
+     * @return The rightward direction vector.
      */
     public Vector getvRight() {
         return vRight;
     }
 
     /**
-     * @return The distance of the camera to the view plane.
+     * Gets the distance from the camera to the view plane.
+     *
+     * @return The distance to the view plane.
      */
     public double getDistance() {
         return distance;
     }
 
     /**
+     * Gets the width of the view plane.
+     *
      * @return The width of the view plane.
      */
     public double getWidth() {
@@ -87,6 +105,8 @@ public class Camera implements Cloneable {
     }
 
     /**
+     * Gets the height of the view plane.
+     *
      * @return The height of the view plane.
      */
     public double getHeight() {
@@ -94,13 +114,13 @@ public class Camera implements Cloneable {
     }
 
     /**
-     * Constructs a ray through a specific pixel in the view plane.
+     * Constructs a ray from the camera through a specific pixel on the view plane.
      *
-     * @param nX Number of horizontal pixels in the view plane.
-     * @param nY Number of vertical pixels in the view plane.
-     * @param j  Column index of the pixel.
-     * @param i  Row index of the pixel.
-     * @return The ray through the pixel (j, i).
+     * @param nX Number of pixels in the x direction.
+     * @param nY Number of pixels in the y direction.
+     * @param j The pixel's column index.
+     * @param i The pixel's row index.
+     * @return The constructed Ray.
      */
     public Ray constructRay(int nX, int nY, int j, int i) {
         Point pC = location.add(vTo.scale(distance));
@@ -125,11 +145,12 @@ public class Camera implements Cloneable {
     }
 
     /**
-     * Prints a grid on the image.
+     * Prints a grid on the image at specified intervals.
      *
-     * @param interval The interval between grid lines.
-     * @param color    The color of the grid lines.
-     * @throws MissingResourceException if the image writer is not set.
+     * @param interval The interval at which to print grid lines.
+     * @param color The color of the grid lines.
+     * @return The current Camera instance.
+     * @throws MissingResourceException if imageWriter is not set.
      */
     public Camera printGrid(int interval, Color color) {
         if (imageWriter == null) {
@@ -152,9 +173,10 @@ public class Camera implements Cloneable {
     }
 
     /**
-     * Renders the image by casting rays through all pixels in the view plane.
+     * Renders the image using the ray tracer and image writer.
      *
-     * @throws MissingResourceException if the ray tracer or image writer is not set.
+     * @return The current Camera instance.
+     * @throws MissingResourceException if rayTracer or imageWriter are not set.
      */
     public Camera renderImage() {
         if (rayTracer == null) {
@@ -182,13 +204,13 @@ public class Camera implements Cloneable {
     }
 
     /**
-     * Casts a ray through a specified pixel and writes the resulting color to the image.
-     * If depth of field (DoF) effects are enabled, multiple rays are cast per pixel to average the colors for a realistic blur effect.
+     * Casts a ray for a specific pixel and writes the pixel color to the image.
+     * If depth of field (DoF) is enabled, averages colors of multiple rays.
      *
-     * @param Nx     Number of horizontal pixels in the view plane.
-     * @param Ny     Number of vertical pixels in the view plane.
-     * @param column Column index of the pixel.
-     * @param row    Row index of the pixel.
+     * @param Nx The number of pixels in the x direction.
+     * @param Ny The number of pixels in the y direction.
+     * @param column The column index of the pixel.
+     * @param row The row index of the pixel.
      */
     private void castRay(int Nx, int Ny, int column, int row) {
         if (!useDepthOfField) {
@@ -211,14 +233,13 @@ public class Camera implements Cloneable {
     }
 
     /**
-     * Constructs a ray with depth of field (DoF) effects through a specified pixel.
-     * If DoF is enabled, the ray is offset based on a random point within the aperture to simulate a blurred focus effect.
+     * Constructs a ray with depth of field (DoF) effect for a specific pixel.
      *
-     * @param nX Number of horizontal pixels in the view plane.
-     * @param nY Number of vertical pixels in the view plane.
-     * @param j  Column index of the pixel.
-     * @param i  Row index of the pixel.
-     * @return The constructed ray with DoF effects, or a primary ray if DoF is disabled.
+     * @param nX Number of pixels in the x direction.
+     * @param nY Number of pixels in the y direction.
+     * @param j The pixel's column index.
+     * @param i The pixel's row index.
+     * @return The constructed Ray with DoF effect.
      */
     private Ray constructRayDoF(int nX, int nY, int j, int i) {
         Ray primaryRay = constructRay(nX, nY, j, i);
@@ -235,9 +256,13 @@ public class Camera implements Cloneable {
     }
 
     /**
-     * Writes the image to a file.
+     * Writes the rendered image to the output using the configured {@link ImageWriter}.
      *
-     * @throws MissingResourceException if the image writer is not set.
+     * <p>This method calls the {@link ImageWriter#writeToImage()} method to save the image to the specified output.
+     * If no {@link ImageWriter} has been set for the camera, an exception will be thrown.</p>
+     *
+     * @throws MissingResourceException If the {@link ImageWriter} has not been set for the camera.
+     * @see ImageWriter#writeToImage()
      */
     public void writeToImage() {
         if (imageWriter == null) {
@@ -246,26 +271,9 @@ public class Camera implements Cloneable {
         imageWriter.writeToImage();
     }
 
-    /**
-     * Rotates the camera around the Z-axis by the specified angle.
-     * This method updates the camera's location and orientation vectors based on the rotation angle.
-     *
-     * @param angle The angle of rotation around the Z-axis, in degrees. Positive values indicate counterclockwise rotation.
-     */
-    public void rotateAroundZAxis(double angle) {
-        double radAngle = Math.toRadians(angle);
-        double x = Math.cos(radAngle) * distance;
-        double y = Math.sin(radAngle) * distance;
-
-        this.location = new Point(x, y, 100);
-        this.vTo = new Vector(-x, -y, 0).normalize();
-        this.vUp = new Vector(0, 0, 1);
-        this.vRight = vTo.crossProduct(vUp).normalize();
-    }
-
 
     /**
-     * Builder class for constructing a Camera instance.
+     * Inner static Builder class for creating instances of Camera.
      */
     public static class Builder {
 
@@ -355,6 +363,17 @@ public class Camera implements Cloneable {
             return this;
         }
 
+        /**
+         * Sets the number of threads to be used for rendering.
+         *
+         * @param thread The number of threads to use.
+         *               -2: automatically determine the number of threads based on available processors.
+         *               -1: use a range/stream approach for multithreading.
+         *                0: disable multithreading.
+         *                1+: specify the exact number of threads to use.
+         * @return The builder instance.
+         * @throws IllegalArgumentException if the number of threads is less than -2.
+         */
         public Builder setMultithreading(int thread)
         {
             if(thread < -2) throw new IllegalArgumentException("Multithreading must be -2 or higher");
@@ -366,8 +385,68 @@ public class Camera implements Cloneable {
             return this;
         }
 
+        /**
+         * Sets the interval for printing debug progress.
+         *
+         * @param printInterval The interval at which to print progress, in percentage.
+         * @return The builder instance.
+         */
         public Builder setDebugPrint(double printInterval) {
             camera.printInterval = printInterval;
+            return this;
+        }
+
+        /**
+         * Rotates the camera around the Z-axis by a specified angle.
+         *
+         * @param angle The angle in degrees by which to rotate the camera around the Z-axis.
+         * @return The current Builder instance for chaining.
+         */
+        public Builder rotateAroundZAxis(double angle) {
+            double radAngle = Math.toRadians(angle);
+            double x = Math.cos(radAngle) * camera.distance;
+            double y = Math.sin(radAngle) * camera.distance;
+
+            camera.location = new Point(x, y, 100);
+            camera.vTo = new Vector(-x, -y, 0).normalize();
+            camera.vUp = new Vector(0, 0, 1);
+            camera.vRight = camera.vTo.crossProduct(camera.vUp).normalize();
+            return this;
+        }
+
+        /**
+         * Rotates the camera around the X-axis by a specified angle.
+         *
+         * @param angle The angle in degrees by which to rotate the camera around the X-axis.
+         * @return The current Builder instance for chaining.
+         */
+        public Builder rotateAroundXAxis(double angle) {
+            double radAngle = Math.toRadians(angle);
+            double y = Math.cos(radAngle) * camera.distance;
+            double z = Math.sin(radAngle) * camera.distance;
+
+            camera.location = new Point(100, y, z);
+            camera.vTo = new Vector(0, -y, -z).normalize();
+            camera.vRight = new Vector(1, 0, 0);
+            camera.vUp = camera.vRight.crossProduct(camera.vTo).normalize();
+            return this;
+        }
+
+        /**
+         * Rotates the camera around the Y-axis by a specified angle.
+         *
+         * @param angle The angle in degrees by which to rotate the camera around the Y-axis.
+         * @return The current Builder instance for chaining.
+         */
+        public Builder rotateAroundYAxis(double angle) {
+            double radAngle = Math.toRadians(angle);
+            double x = Math.cos(radAngle) * camera.distance;
+            double z = Math.sin(radAngle) * camera.distance;
+
+            camera.location = new Point(x, 100, z);
+            camera.vTo = new Vector(-x, 0, -z).normalize();
+            camera.vUp = new Vector(0, 1, 0);
+            camera.vRight = camera.vTo.crossProduct(camera.vUp).normalize();
             return this;
         }
 

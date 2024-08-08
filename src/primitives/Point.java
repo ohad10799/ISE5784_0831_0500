@@ -9,9 +9,21 @@ public class Point {
     /**
      * Zero triad (0,0,0)
      */
-    public static final Point ZERO = new Point(0, 0, 0); // Final static public Point ZERO;
-    protected final Double3 xyz; // The coordinates of the point.
+    public static final Point ZERO = new Point(0, 0, 0);
+
+    /**
+     * The coordinates of the point.
+     */
+    protected final Double3 xyz;
+
+    /**
+     * Represents a point with positive infinite coordinates.
+     */
     public static final Point POSITIVE_INFINITE = new Point(Double3.POSITIVE_INFINITE);
+
+    /**
+     * Represents a point with negative infinite coordinates.
+     */
     public static final Point NEGATIVE_INFINITE = new Point(Double3.NEGATIVE_INFINITE);
 
     /**
@@ -71,8 +83,25 @@ public class Point {
         return new Point(xyz.add(v1.xyz));
     }
 
+
+    /**
+     * Computes the point resulting from adding another point to this point.
+     *
+     * @param p1 The point to add.
+     * @return The new point after adding the other point.
+     */
     public Point add(Point p1) {
         return new Point(xyz.add(p1.xyz));
+    }
+
+    /**
+     * Scales the coordinates of the point by a given factor.
+     *
+     * @param v The scaling factor.
+     * @return The new point after scaling.
+     */
+    public Point scale(double v) {
+        return new Point(xyz.scale(v));
     }
 
     /**
@@ -97,7 +126,12 @@ public class Point {
         return Math.sqrt(distanceSquared(p1));
     }
 
-
+    /**
+     * Finds the point with the minimum coordinates from a list of points.
+     *
+     * @param points The list of points.
+     * @return The point with the minimum coordinates.
+     */
     public static Point findMinimum(List<Point> points) {
         double xMin = Double.POSITIVE_INFINITY;
         double yMin = Double.POSITIVE_INFINITY;
@@ -111,6 +145,12 @@ public class Point {
         return new Point(xMin, yMin, zMin);
     }
 
+    /**
+     * Finds the point with the maximum coordinates from a list of points.
+     *
+     * @param points The list of points.
+     * @return The point with the maximum coordinates.
+     */
     public static Point findMaximum(List<Point> points) {
         double xMax = Double.NEGATIVE_INFINITY;
         double yMax = Double.NEGATIVE_INFINITY;
@@ -123,19 +163,32 @@ public class Point {
         return new Point(xMax, yMax, zMax);
     }
 
+    /**
+     * Gets the x-coordinate of the point.
+     *
+     * @return The x-coordinate.
+     */
     public double getX() {
         return xyz.d1;
     }
 
+    /**
+     * Gets the y-coordinate of the point.
+     *
+     * @return The y-coordinate.
+     */
     public double getY() {
         return xyz.d2;
     }
 
+    /**
+     * Gets the z-coordinate of the point.
+     *
+     * @return The z-coordinate.
+     */
     public double getZ() {
         return xyz.d3;
     }
 
-    public Point scale(double v) {
-        return new Point(xyz.scale(v));
-    }
+
 }

@@ -18,15 +18,11 @@ public class myPictures {
     // Scene to render
     private final Scene scene = new Scene("Test scene");
 
-    // Camera builder for the tests with triangles
-    private final Camera.Builder cameraBuilder = Camera.getBuilder()
-            .setRayTracer(new SimpleRayTracer(scene));
-
     @Test
     public void render3DPyramidOfSpheres() {
-        double radius = 15d;
-        double spacing = 2 * radius ;
-        double heightStep = 25;
+        double pyramidRadius = 15d;
+        double spacing = 2 * pyramidRadius; // the space between the spheres
+        double heightStep = 25; // the space between the layers
 
         // ***** SHAPES *****
 
@@ -58,9 +54,14 @@ public class myPictures {
                 double x = (i - 1.5) * spacing;
                 double y = (j - 1.5) * spacing;
                 scene.geometries.add(
-                        new Sphere(radius, new Point(x, y, -30 + radius))  // Changed Z to -30 + radius
+                        new Sphere(pyramidRadius, new Point(x, y, -30 + pyramidRadius))
                                 .setEmission(new Color(BLUE))
-                                .setMaterial(new Material().setkD(0.4).setkS(0.3).setShininess(100).setkT(0.1).setkR(0.1))
+                                .setMaterial(new Material()
+                                        .setkD(0.4)
+                                        .setkS(0.3)
+                                        .setShininess(100)
+                                        .setkT(0.1)
+                                        .setkR(0.1))
                 );
             }
         }
@@ -71,9 +72,14 @@ public class myPictures {
                 double x = (i - 1) * spacing;
                 double y = (j - 1) * spacing;
                 scene.geometries.add(
-                        new Sphere(radius, new Point(x, y, -30 + radius + heightStep))  // Adjusted Z
+                        new Sphere(pyramidRadius, new Point(x, y, -30 + pyramidRadius + heightStep))
                                 .setEmission(new Color(RED))
-                                .setMaterial(new Material().setkD(0.4).setkS(0.3).setShininess(100).setkT(0.1).setkR(0.1))
+                                .setMaterial(new Material()
+                                        .setkD(0.4)
+                                        .setkS(0.3)
+                                        .setShininess(100)
+                                        .setkT(0.1)
+                                        .setkR(0.1))
                 );
             }
         }
@@ -84,63 +90,99 @@ public class myPictures {
                 double x = (i - 0.5) * spacing;
                 double y = (j - 0.5) * spacing;
                 scene.geometries.add(
-                        new Sphere(radius, new Point(x, y, -30 + radius + 2 * heightStep))  // Adjusted Z
+                        new Sphere(pyramidRadius, new Point(x, y, -30 + pyramidRadius + 2 * heightStep))  // Adjusted Z
                                 .setEmission(new Color(GREEN))
-                                .setMaterial(new Material().setkD(0.4).setkS(0.3).setShininess(100).setkT(0.1).setkR(0.1))
+                                .setMaterial(new Material().setkD(0.4)
+                                        .setkS(0.3)
+                                        .setShininess(100)
+                                        .setkT(0.1)
+                                        .setkR(0.1))
                 );
             }
         }
 
         // Fourth layer (1 sphere at the top)
         scene.geometries.add(
-                new Sphere(radius, new Point(0, 0, -30 + radius + 3 * heightStep))  // Adjusted Z
+                new Sphere(pyramidRadius, new Point(0, 0, -30 + pyramidRadius + 3 * heightStep))  // Adjusted Z
                         .setEmission(new Color(BLUE))
-                        .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(30).setkT(0.1).setkR(0.1))
+                        .setMaterial(new Material()
+                                .setkD(0.5)
+                                .setkS(0.5)
+                                .setShininess(30)
+                                .setkT(0.1)
+                                .setkR(0.1))
         );
 
 
-        double floorSphereRadius = 20d;
+        double treeSphereRadius = 20d;
 
         // Add right tree (8 spheres in a vertical line)
         for (int i = 0 ; i<8 ; i++){
             scene.geometries.add(
-                    new Sphere(floorSphereRadius, new Point(-500, 100, -30 + floorSphereRadius + 20 * i))
-                            .setEmission(new Color(83, 49, 24))  // Light red color
-                            .setMaterial(new Material().setkD(0.4).setkS(0.3).setShininess(100).setkT(0.1).setkR(0.1))
+                    new Sphere(treeSphereRadius, new Point(-500, 100, -30 + treeSphereRadius + 20 * i))
+                            .setEmission(new Color(83, 49, 24))  // tree brown color
+                            .setMaterial(new Material()
+                                    .setkD(0.4)
+                                    .setkS(0.3)
+                                    .setShininess(100)
+                                    .setkT(0.1)
+                                    .setkR(0.1))
             );
 
         }
 
-        double baseOffset = 20; // size of the pyramid base
-        double pyramidHeight = 60;
+        double treeHeadBase = 20; // base for the head of the tree
+        double treeHeadHeight = 60; // height of the head of the tree
 
         // Add pyramid of triangles on top of the right tree
         double rightTopX = -500d;
         double rightTopY = 100d;
-        double rightTopZ = -32 + floorSphereRadius + 20 * 8;
+        double rightTopZ = -32 + treeSphereRadius + 20 * 8;
 
-        Point baseR1 = new Point(rightTopX - baseOffset, rightTopY - baseOffset, rightTopZ);
-        Point baseR2 = new Point(rightTopX + baseOffset, rightTopY - baseOffset, rightTopZ);
-        Point baseR3 = new Point(rightTopX, rightTopY + baseOffset, rightTopZ);
-        Point apexR = new Point(rightTopX, rightTopY, rightTopZ + pyramidHeight);
+        Point baseR1 = new Point(rightTopX - treeHeadBase, rightTopY - treeHeadBase, rightTopZ);
+        Point baseR2 = new Point(rightTopX + treeHeadBase, rightTopY - treeHeadBase, rightTopZ);
+        Point baseR3 = new Point(rightTopX, rightTopY + treeHeadBase, rightTopZ);
+        Point apexR = new Point(rightTopX, rightTopY, rightTopZ + treeHeadHeight);
 
         scene.geometries.add(new Triangle(baseR1, baseR2, apexR)
                 .setEmission(new Color(GREEN))
-                .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(100).setkT(0).setkR(0)));
+                .setMaterial(new Material()
+                        .setkD(0.5)
+                        .setkS(0.5)
+                        .setShininess(100)
+                        .setkT(0)
+                        .setkR(0)));
+
         scene.geometries.add(new Triangle(baseR2, baseR3, apexR)
                 .setEmission(new Color(GREEN))
-                .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(100).setkT(0).setkR(0)));
+                .setMaterial(new Material()
+                        .setkD(0.5)
+                        .setkS(0.5)
+                        .setShininess(100)
+                        .setkT(0)
+                        .setkR(0)));
+
         scene.geometries.add(new Triangle(baseR3, baseR1, apexR)
                 .setEmission(new Color(GREEN))
-                .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(100).setkT(0).setkR(0)));
+                .setMaterial(new Material()
+                        .setkD(0.5)
+                        .setkS(0.5)
+                        .setShininess(100)
+                        .setkT(0)
+                        .setkR(0)));
 
 
         // Add left tree (8 spheres in a vertical line)
         for (int i = 0 ; i<8 ; i++) {
             scene.geometries.add(
-                    new Sphere(floorSphereRadius, new Point(-400, -300, -30 + floorSphereRadius + 20 * i))
-                            .setEmission(new Color(83, 49, 24))  // Light green color
-                            .setMaterial(new Material().setkD(0.4).setkS(0.3).setShininess(100).setkT(0.1).setkR(0.1))
+                    new Sphere(treeSphereRadius, new Point(-400, -300, -30 + treeSphereRadius + 20 * i))
+                            .setEmission(new Color(83, 49, 24))
+                            .setMaterial(new Material()
+                                    .setkD(0.4)
+                                    .setkS(0.3)
+                                    .setShininess(100)
+                                    .setkT(0.1)
+                                    .setkR(0.1))
             );
         }
 
@@ -148,22 +190,39 @@ public class myPictures {
         // Add pyramid of triangles on top of the left tree
         double leftTopX = -410d;
         double leftTopY = -300d;
-        double leftTopZ = -32 + floorSphereRadius + 20 * 8;
+        double leftTopZ = -32 + treeSphereRadius + 20 * 8;
 
-        Point base1 = new Point(leftTopX - baseOffset, leftTopY - baseOffset, leftTopZ);
-        Point base2 = new Point(leftTopX + baseOffset, leftTopY - baseOffset, leftTopZ);
-        Point base3 = new Point(leftTopX, leftTopY + baseOffset, leftTopZ);
-        Point apex = new Point(leftTopX, leftTopY, leftTopZ + pyramidHeight);
+        Point base1 = new Point(leftTopX - treeHeadBase, leftTopY - treeHeadBase, leftTopZ);
+        Point base2 = new Point(leftTopX + treeHeadBase, leftTopY - treeHeadBase, leftTopZ);
+        Point base3 = new Point(leftTopX, leftTopY + treeHeadBase, leftTopZ);
+        Point apex = new Point(leftTopX, leftTopY, leftTopZ + treeHeadHeight);
 
         scene.geometries.add(new Triangle(base1, base2, apex)
                 .setEmission(new Color(GREEN))
-                .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(100).setkT(0).setkR(0)));
+                .setMaterial(new Material()
+                        .setkD(0.5)
+                        .setkS(0.5)
+                        .setShininess(100)
+                        .setkT(0)
+                        .setkR(0)));
+
         scene.geometries.add(new Triangle(base2, base3, apex)
                 .setEmission(new Color(GREEN))
-                .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(100).setkT(0.2).setkR(0)));
+                .setMaterial(new Material()
+                        .setkD(0.5)
+                        .setkS(0.5)
+                        .setShininess(100)
+                        .setkT(0.2)
+                        .setkR(0)));
+
         scene.geometries.add(new Triangle(base3, base1, apex)
                 .setEmission(new Color(GREEN))
-                .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(100).setkT(0).setkR(0)));
+                .setMaterial(new Material()
+                        .setkD(0.5)
+                        .setkS(0.5)
+                        .setShininess(100)
+                        .setkT(0)
+                        .setkR(0)));
 
 
         // Create the mirror
@@ -173,7 +232,8 @@ public class myPictures {
 
         scene.geometries.add(new Triangle(p1, p2, p3)
                 .setEmission(Color.BLACK) // No emission color
-                .setMaterial(new Material().setkR(1.0))); // Reflective mirror effect
+                .setMaterial(new Material()
+                        .setkR(1.0))); // Reflective mirror effect
 
 
 
@@ -184,13 +244,17 @@ public class myPictures {
 
         // Main strong light from above and to the side
         scene.lights.add(
-                new SpotLight(new Color(255, 255, 255), new Point(200, 200, 200), new Vector(-1, -1, -1))
-                        .setKl(4E-4).setKq(2E-6));
+                new SpotLight(new Color(255, 255, 255),
+                        new Point(200, 200, 200),
+                        new Vector(-1, -1, -1))
+                        .setKl(4E-4)
+                        .setKq(2E-6));
 
         // Secondary light for fill
         scene.lights.add(
                 new PointLight(new Color(50, 50, 100), new Point(-100, -100, 200))
-                        .setKl(4E-4).setKq(2E-5));
+                        .setKl(4E-4)
+                        .setKq(2E-5));
 
 
         // ***** CAMERA *****
@@ -211,11 +275,9 @@ public class myPictures {
                 .setFocalLength(400)
                 .setApertureSize(10)
                 .setRayTracer(new SimpleRayTracer(scene))
+                .rotateAroundZAxis(15)
                 .setImageWriter(new ImageWriter("pyramidOfSpheres_DoF", 800, 800))
                 .build();
-
-        // Apply rotation to the camera
-        camera1.rotateAroundZAxis(15);
 
         // Render the image
         camera1.renderImage().writeToImage();
@@ -228,12 +290,9 @@ public class myPictures {
                 .setVpDistance(distance)
                 .setUseDepthOfField(false)
                 .setRayTracer(new SimpleRayTracer(scene))
+                .rotateAroundZAxis(15)
                 .setImageWriter(new ImageWriter("pyramidOfSpheres_No_DoF", 800, 800))
                 .build();
-
-        // Apply rotation to the camera
-        camera2.rotateAroundZAxis(15);
-
         // Render the image
         camera2.renderImage().writeToImage();
     }

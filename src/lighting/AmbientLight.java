@@ -10,6 +10,12 @@ import primitives.Double3;
  * This class provides methods to create ambient light with various intensities.
  */
 public class AmbientLight extends Light {
+
+    /**
+     * Represents a special case of ambient light with no intensity.
+     * This constant is used to indicate the absence of ambient light in a scene.
+     * It is effectively a black ambient light with zero intensity.
+     */
     public final static AmbientLight NONE = new AmbientLight(Color.BLACK, 0.0);
 
     /**

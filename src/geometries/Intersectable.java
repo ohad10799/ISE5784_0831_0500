@@ -56,6 +56,14 @@ public abstract class Intersectable {
      */
     protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance);
 
+    /**
+     * Finds the minimum and maximum points of the geometric shape.
+     *
+     * This method is used for determining the bounding box of the shape.
+     *
+     * @return a list of two points where the first point is the minimum point
+     *         and the second point is the maximum point of the bounding box
+     */
     public abstract List<Point> minMaxPoints();
 
     /**
