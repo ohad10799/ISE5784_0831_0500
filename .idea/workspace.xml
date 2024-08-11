@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="starting stage 9, BVH and MT">
-      <change afterPath="$PROJECT_DIR$/JavaDocs/geometries/CBR.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaDocs/renderer/BVHTest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/BVHTestWithManyTrees.png" afterDir="false" />
+    <list default="true" id="aeb495b4-4b72-4123-983b-21f8e0ee9493" name="Changes" comment="finished stage 9, MT and BVH">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/allclasses-index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/allpackages-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/CBR.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/CBR.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/Cylinder.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/Cylinder.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/CylinderTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/CylinderTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/geometries/Geometries.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/geometries/Geometries.html" afterDir="false" />
@@ -60,7 +58,6 @@
       <change beforePath="$PROJECT_DIR$/JavaDocs/lighting/SpotLight.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/lighting/SpotLight.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/lighting/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/lighting/package-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/lighting/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/lighting/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/member-search-index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/overview-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/overview-tree.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/primitives/Color.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/primitives/Color.html" afterDir="false" />
@@ -72,6 +69,7 @@
       <change beforePath="$PROJECT_DIR$/JavaDocs/primitives/Vector.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/primitives/Vector.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/primitives/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/primitives/package-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/primitives/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/primitives/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDocs/renderer/BVHTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/renderer/BVHTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/renderer/Camera.Builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/renderer/Camera.Builder.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/renderer/Camera.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/renderer/Camera.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/renderer/ImageWriter.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/renderer/ImageWriter.html" afterDir="false" />
@@ -92,21 +90,17 @@
       <change beforePath="$PROJECT_DIR$/JavaDocs/test/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/test/Main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/test/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/test/package-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaDocs/test/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/test/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDocs/type-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDocs/type-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/base render test.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/base render test.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/color render test.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/color render test.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/custom.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/images/pyramidOfSpheres_DoF.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/pyramidOfSpheres_DoF.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pyramidOfSpheres_DoF_BVH.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/pyramidOfSpheres_No_DoF_BVH.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/CBR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/CBR.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Cylinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Intersectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Intersectable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lighting/AmbientLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/AmbientLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shadowSphereTriangleInitial.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/shadowSphereTriangleInitial.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shadowSphereTriangleMove1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/shadowSphereTriangleMove1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shadowSphereTriangleMove2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/shadowSphereTriangleMove2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shadowSphereTriangleSpot1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/shadowSphereTriangleSpot1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shadowSphereTriangleSpot2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/shadowSphereTriangleSpot2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/ImageWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/ImageWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/renderer/BVHTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/renderer/BVHTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/renderer/TeapotTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/renderer/myPictures.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/renderer/myPictures.java" afterDir="false" />
     </list>
     <list id="cb322a80-95a1-4bf5-badf-85de343acff9" name="Changes by wwwme" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -245,7 +239,15 @@
       <recent name="geometries" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.myPictures">
+  <component name="RunManager" selected="JUnit.BVHTest">
+    <configuration name="All in ISE5784_0831_0500" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5784_0831_0500" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BVHTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5784_0831_0500" />
       <extension name="coverage">
@@ -257,22 +259,6 @@
       <option name="PACKAGE_NAME" value="renderer" />
       <option name="MAIN_CLASS_NAME" value="renderer.BVHTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BVHTest.renderComplexSceneWithoutBVH" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5784_0831_0500" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="renderer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.BVHTest" />
-      <option name="METHOD_NAME" value="renderComplexSceneWithoutBVH" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -326,11 +312,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.myPictures" />
         <item itemvalue="JUnit.BVHTest" />
+        <item itemvalue="JUnit.All in ISE5784_0831_0500" />
+        <item itemvalue="JUnit.myPictures" />
         <item itemvalue="JUnit.BVHTest.testWithManyTrees" />
         <item itemvalue="JUnit.BVHTest.testBVHWithManyTrees" />
-        <item itemvalue="JUnit.BVHTest.renderComplexSceneWithoutBVH" />
       </list>
     </recent_temporary>
   </component>
@@ -342,14 +328,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1715178931013</updated>
-    </task>
-    <task id="LOCAL‎-00002" summary="finished point and in the middle of vector">
-      <option name="closed" value="true" />
-      <created>1715192689129</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL‎-00002" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1715192689129</updated>
     </task>
     <task id="LOCAL‎-00003" summary="finished point and in the middle of vector">
       <option name="closed" value="true" />
@@ -735,7 +713,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1722952786076</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL‎-00051" summary="finished stage 9, MT and BVH">
+      <option name="closed" value="true" />
+      <created>1723121110375</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL‎-00051" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1723121110377</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -751,7 +737,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="stage 3 for plane triangle and sphere" />
     <MESSAGE value="stage 2  getnormal fixed" />
     <MESSAGE value="test findIntersections (need to check if its ok) and impliment of findIntersections of plane and middle of sphere" />
     <MESSAGE value="finished level A in stage 3 and start level B" />
@@ -776,6 +761,7 @@
     <MESSAGE value="stage 7 with making simple picture" />
     <MESSAGE value="finished stage 7!" />
     <MESSAGE value="starting stage 9, BVH and MT" />
-    <option name="LAST_COMMIT_MESSAGE" value="starting stage 9, BVH and MT" />
+    <MESSAGE value="finished stage 9, MT and BVH" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished stage 9, MT and BVH" />
   </component>
 </project>

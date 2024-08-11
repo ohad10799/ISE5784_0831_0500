@@ -18,7 +18,7 @@ import static java.awt.Color.*;
  */
 public class BVHTest {
 
-    private static final boolean RUN_BVH_TEST = true;
+    private static final boolean RUN_BVH_TEST = false;
 
     /**
      * Tests rendering a scene with many trees, either using BVH or not based on the {@link #RUN_BVH_TEST} flag.
@@ -148,7 +148,7 @@ public class BVHTest {
                 .setVpSize(300, 300)
                 .setVpDistance(2000)
                 .setUseDepthOfField(false)
-                .setMultithreading(3)
+                .setMultithreading(-1)
                 .setDebugPrint(0.1)
                 .rotateAroundXAxis(-5)
                 .rotateAroundZAxis(10)
@@ -284,7 +284,7 @@ public class BVHTest {
                 .setVpSize(300, 300)
                 .setVpDistance(2000)
                 .setUseDepthOfField(false)
-                .setMultithreading(3)
+                .setMultithreading(-1)
                 .setDebugPrint(0.1)
                 .setRayTracer(new SimpleRayTracer(scene))
                 .rotateAroundXAxis(-5)

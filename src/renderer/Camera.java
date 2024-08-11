@@ -1,6 +1,8 @@
 package renderer;
 
 import primitives.*;
+
+import java.util.LinkedList;
 import java.util.MissingResourceException;
 import java.util.stream.IntStream;
 
@@ -29,7 +31,7 @@ public class Camera implements Cloneable {
     private double apertureSize = 1; // The size of the aperture for depth of field effects.
 
     // new parameter for multithreading
-    private int threadsCount = 0; // -2 auto, 0 no threads, 1+ number of threads
+    private int threadsCount = 0; // -2 auto, -1 range, 0 no threads, 1+ number of threads
     private final int SPARE_THREADS = 2; // Spare threads if trying to use all the cores
     private double printInterval = 0; // printing progress percentage interval
     private PixelManager pixelManager; // pixel manager for multithreading
@@ -195,12 +197,29 @@ public class Camera implements Cloneable {
                 }
             }
         }
-        else {
+        else if (threadsCount == -1){
             IntStream.range(0, nY).parallel()
                     .forEach(i -> IntStream.range(0, nX).parallel() // for each row:
                             .forEach(j -> castRay(nX, nY, j, i))); // for each column in row
         }
+
+        else {
+            var threads = new LinkedList<Thread>(); // list of threads
+            while (threadsCount-- > 0) // add appropriate number of threads
+                threads.add(new Thread(() -> { // add a thread with its code
+                    PixelManager.Pixel pixel; // current pixel(row,col)
+                    // allocate pixel(row,col) in loop until there are no more pixels
+                    while ((pixel = pixelManager.nextPixel()) != null)
+                        // cast ray through pixel (and color it – inside castRay)
+                        castRay(nX, nY, pixel.col(), pixel.row());
+                }));
+            // start all the threads
+            for (var thread : threads) thread.start();
+            // wait until all the threads have finished
+            try { for (var thread : threads) thread.join(); } catch (InterruptedException ignore) {}
+        }
         return this;
+
     }
 
     /**
